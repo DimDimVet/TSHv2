@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 142623db6a16fa2428f0a656f3192a0c, type: 3}
-  m_Name: PlayerMoveSettings
+  m_Script: {fileID: 11500000, guid: 3cab9ca727643364ebaec0b05a3ae920, type: 3}
+  m_Name: MoveAvtoEnemySettings
   m_EditorClassIdentifier: 
-  SpeedForward: 28.8
-  SpeedBack: 5
-  SpeedTurn: 25
+  SpeedMove: 10
+  Acceleration: 10
+  SpeedAngle: 120
+  StopDistance: 15

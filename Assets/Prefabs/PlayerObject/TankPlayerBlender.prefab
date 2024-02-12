@@ -14797,6 +14797,7 @@ GameObject:
   - component: {fileID: 5435082119369532320}
   - component: {fileID: 6405148292898646231}
   - component: {fileID: 1941943849732808569}
+  - component: {fileID: 5091317998749279487}
   m_Layer: 0
   m_Name: AvtoRif
   m_TagString: Untagged
@@ -14872,6 +14873,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5091317998749279487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169905155560193923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152ba2ca48fbcd540ba71cc6affffb26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: df060d75f3deda24a9dac2dd3d46a9e8, type: 2}
 --- !u!1 &2122636664345074328
 GameObject:
   m_ObjectHideFlags: 0

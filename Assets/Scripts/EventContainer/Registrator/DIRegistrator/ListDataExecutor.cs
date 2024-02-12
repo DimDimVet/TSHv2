@@ -19,18 +19,21 @@ namespace Registrator
         {
             return allList;
         }
-        public Construction SetObjectHash(int hash)
+        public Construction GetObjectHash(int hash)
         {
-            for (int i = 0; i < allList.Length; i++)
+            if (allList != null)
             {
-                if (allList[i].Hash == hash)
+                for (int i = 0; i < allList.Length; i++)
                 {
-                    return allList[i];
-                }
-                else
-                {
-                    Construction tempRezult = GetChildrenHash(allList[i], hash);
-                    if (tempRezult.Hash != 0) { return tempRezult; }
+                    if (allList[i].Hash == hash)
+                    {
+                        return allList[i];
+                    }
+                    else
+                    {
+                        Construction tempRezult = GetChildrenHash(allList[i], hash);
+                        if (tempRezult.Hash != 0) { return tempRezult; }
+                    }
                 }
             }
             return new Construction();
@@ -76,11 +79,14 @@ namespace Registrator
 
         public Construction GetCamera()
         {
-            for (int i = 0; i < allList.Length; i++)
+            if (allList != null)
             {
-                if (allList[i].CameraComponent !=null)
+                for (int i = 0; i < allList.Length; i++)
                 {
-                    camera = allList[i];
+                    if (allList[i].CameraComponent != null)
+                    {
+                        camera = allList[i];
+                    }
                 }
             }
             return camera;

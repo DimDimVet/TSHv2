@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 142623db6a16fa2428f0a656f3192a0c, type: 3}
-  m_Name: PlayerMoveSettings
+  m_Script: {fileID: 11500000, guid: d6016d4c9fb503b4cb7ab60b9be58300, type: 3}
+  m_Name: ScanEnemyTankSettings
   m_EditorClassIdentifier: 
-  SpeedForward: 28.8
-  SpeedBack: 5
-  SpeedTurn: 25
+  DiametrCollider: 40
+  KfCollider: 2

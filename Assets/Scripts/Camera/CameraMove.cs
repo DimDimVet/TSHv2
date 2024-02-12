@@ -1,5 +1,7 @@
+using Input;
 using Registrator;
 using UnityEngine;
+using UnityEngine.Windows;
 using Zenject;
 
 namespace CameraMain
@@ -17,9 +19,11 @@ namespace CameraMain
         private bool isStopClass = false, isRun = false;
 
         private IListDataExecutor dataList;
+        private IInputPlayerExecutor inputs;
         [Inject]
-        public void Init(IListDataExecutor _dataList)
+        public void Init(IListDataExecutor _dataList, IInputPlayerExecutor _inputs)
         {
+            inputs = _inputs;
             dataList = _dataList;
         }
 
@@ -57,6 +61,7 @@ namespace CameraMain
         }
         private void RunUpdate()
         {
+
             curPos = cameraTarget.transform.position;
             cameraTransf.position = Vector3.Lerp(a: cameraTransf.position,
                                                  b: curPos,

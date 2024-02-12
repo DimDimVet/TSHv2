@@ -10066,6 +10066,9 @@ GameObject:
   - component: {fileID: 4818107970094035617}
   - component: {fileID: 1414383009816034156}
   - component: {fileID: 8566800847825917002}
+  - component: {fileID: 6983777857813275823}
+  - component: {fileID: 9030178185754701457}
+  - component: {fileID: 6239600252744895713}
   m_Layer: 0
   m_Name: AvtoEnemy
   m_TagString: Untagged
@@ -10250,9 +10253,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4d1f359d76a7945a11a6ed41ffd301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentObject: {fileID: 0}
-  ParentHash: 0
-  thisHash: 0
+  typeObject: 1
+--- !u!114 &6983777857813275823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968821607049334371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a540768ce3dc70a44a6dff21f87b7993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 30fb644b48378bb4395f9c286578eef1, type: 2}
+--- !u!114 &9030178185754701457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968821607049334371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e248cadc0b7f82042bb0a3327393fc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 7c552e13d52f57b4b888622862d868d0, type: 2}
+--- !u!114 &6239600252744895713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968821607049334371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b052efc13ddbb4ea401ce50486c6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentTurnObject: {fileID: 6983070365151368384}
+  settings: {fileID: 11400000, guid: c1e9100b12d667a4c9edb6025e95cae1, type: 2}
 --- !u!1 &4454414314092951442
 GameObject:
   m_ObjectHideFlags: 0

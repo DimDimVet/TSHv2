@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Input
 {
     [CreateAssetMenu(fileName = "TurnSettings", menuName = "ScriptableObjects/TurnSettings")]
-    public class TurnSettings : ScriptableObject
+    public class TurnMoveSettings : ScriptableObject
     {
         [Header("Скорость вращения"), Range(0, 50)]
         public float SpeedTurn = 5f;

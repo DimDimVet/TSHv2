@@ -8,6 +8,6 @@
         public Construction GetPlayer();
         public Construction GetCamera();
         public void SetData(Construction registrator);
-        public Construction SetObjectHash(int hash);
+        public Construction GetObjectHash(int hash);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 
 namespace Registrator
@@ -32,6 +33,7 @@ namespace Registrator
                 TypeObject = typeObject,
                 CameraComponent = GetComponent<Camera>(),
                 Transform = gameObject.transform,
+                NavMeshAgent = GetComponent<NavMeshAgent>(),
             };
             dataList.SetData(registrator);
         }

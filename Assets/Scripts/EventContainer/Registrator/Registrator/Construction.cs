@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Registrator
 {
@@ -16,6 +17,7 @@ namespace Registrator
         public int[] ChildrenHash { get; set; }
         public TypeObject TypeObject { get; set; }
         public Camera CameraComponent;
+        public NavMeshAgent NavMeshAgent;
 
     }
 }

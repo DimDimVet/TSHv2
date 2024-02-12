@@ -4,10 +4,10 @@ using Zenject;
 
 namespace Input
 {
-    public class MoveTurn : MonoBehaviour
+    public class MoveAvtoRif : MonoBehaviour
     {
         [SerializeField] private TurnMoveSettings settings;
-        private Mode mode = Mode.Turn;
+        private Mode mode = Mode.AvtoRif;
         private float speedTurn;
         private Construction parentObject;
         private Construction cameraMain;
@@ -47,7 +47,7 @@ namespace Input
                     isRun = true;
                 }
                 else { isRun = false; }
-                
+
             }
         }
 
@@ -108,4 +108,5 @@ namespace Input
         }
     }
 }
+
 
