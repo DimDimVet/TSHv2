@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6fb82ff90fd1f4699c7a96e39ac9b6, type: 3}
   m_Name: TurnSettings
   m_EditorClassIdentifier: 
-  SpeedTurn: 3
+  SpeedTurn: 1
   MaxOffSetX: 0.007

@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Registrator
 {
     public class ListDataExecutor : IListDataExecutor
@@ -76,7 +74,6 @@ namespace Registrator
             }
             else { return enemyList; }
         }
-
         public Construction GetCamera()
         {
             if (allList != null)

@@ -1,3 +1,4 @@
+using CameraMain;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
