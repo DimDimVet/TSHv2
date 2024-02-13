@@ -1,3 +1,4 @@
+using CameraMain;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,7 @@ namespace Registrator
     {
         Player,
         Enemy,
+        CameraPoint,
         Other
     }
     public struct Construction : IConstruction
@@ -18,6 +20,7 @@ namespace Registrator
         public TypeObject TypeObject { get; set; }
         public Camera CameraComponent;
         public NavMeshAgent NavMeshAgent;
+        public CameraPointObject CameraPointObject;
 
     }
 }

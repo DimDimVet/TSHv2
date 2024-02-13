@@ -18,6 +18,7 @@ namespace Input
         public void Enable()
         {
             inputData = new InputData();
+            inputData.Modes = modes;
             inputActions = new InputActions();
             if (inputActions != null)
             {

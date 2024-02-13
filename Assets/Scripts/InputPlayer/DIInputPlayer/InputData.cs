@@ -12,6 +12,7 @@ namespace Input
         public float Shoot;
         public float Mode;
         public Mode ModeAction;
+        public Mode[] Modes;
     }
 }
 

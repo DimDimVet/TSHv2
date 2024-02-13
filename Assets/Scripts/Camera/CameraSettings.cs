@@ -1,3 +1,4 @@
+using Input;
 using UnityEngine;
 
 namespace CameraMain
@@ -19,6 +20,9 @@ namespace CameraMain
 
         [Header("Скорость перемещения камеры")]
         public float SpeedMove = 2f;
+
+        [Header("Связь с режимом стрельбы")]
+        public Mode Mode;
 
         [Header("Обновить")]
         public bool IsUpDate = false;
