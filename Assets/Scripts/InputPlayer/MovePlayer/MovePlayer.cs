@@ -41,10 +41,7 @@ namespace Input
                     rigidbodyGameObject = gameObject.AddComponent<Rigidbody>();
                     isRun = false;
                 }
-                else
-                {
-                    isRun = true;
-                }
+                else{isRun = true;}
             }
         }
 

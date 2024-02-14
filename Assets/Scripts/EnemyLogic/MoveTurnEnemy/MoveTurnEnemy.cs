@@ -43,7 +43,7 @@ namespace EnemyLogic
 
         private void SetClass()
         {
-            thisHash = this.gameObject.GetHashCode();
+            thisHash = gameObject.GetHashCode();
             if (!isRun)
             {
                 defaultTransform = parentTurnObject.transform.rotation;
@@ -51,9 +51,9 @@ namespace EnemyLogic
                 speedTurn = settings.SpeedTurn;
                 maxOffSetX = settings.MaxOffSetX;
 
-                isRun = true;
+                if (thisHash!=0) { isRun = true; } 
+                else { isRun = false; }
             }
-            else { isRun = false; }
         }
 
         void FixedUpdate()

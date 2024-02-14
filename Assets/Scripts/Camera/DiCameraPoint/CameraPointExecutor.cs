@@ -30,11 +30,15 @@ namespace CameraMain
         }
         public CameraPoint GetDataMode(Mode mode)
         {
-            for (int i = 0; i < cameraPointList.Length; i++)
+            if (cameraPointList != null)
             {
-                if (cameraPointList[i].Mode == mode) { return cameraPointList[i]; }
+                for (int i = 0; i < cameraPointList.Length; i++)
+                {
+                    if (cameraPointList[i].Mode == mode) { return cameraPointList[i]; }
+                }
+                return new CameraPoint();
             }
-            return new CameraPoint();
+            else { return new CameraPoint(); }
         }
     }
 }

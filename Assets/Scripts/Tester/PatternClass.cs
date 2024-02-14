@@ -18,7 +18,11 @@ public class PatternClass : MonoBehaviour
 
     private void SetClass()
     {
-        if (!isRun) { isRun = true; }
+        if (!isRun)
+        {
+            if (true) { isRun = true; }
+            else { isRun = false; }
+        }
     }
 
     void Update()

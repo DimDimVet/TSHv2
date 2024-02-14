@@ -45252,6 +45252,8 @@ GameObject:
   - component: {fileID: 4066007728807090772}
   - component: {fileID: 4371478160185181320}
   - component: {fileID: 1399333531627982573}
+  - component: {fileID: 2682132853358343582}
+  - component: {fileID: 7228563331668621021}
   - component: {fileID: 99523729773756265}
   - component: {fileID: 5519138053901206013}
   - component: {fileID: 3471286871416680594}
@@ -45259,6 +45261,7 @@ GameObject:
   - component: {fileID: 6179078274053643106}
   - component: {fileID: 6216280572411010939}
   - component: {fileID: 1302730009766487439}
+  - component: {fileID: 2192503304086002727}
   m_Layer: 0
   m_Name: TankEnemy
   m_TagString: Untagged
@@ -45359,6 +45362,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2682132853358343582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254701966265616306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34ea918d94a4cd4587f7dea87e02431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animSettings: {fileID: 11400000, guid: 8604231a2a30bfc40a663d34e8ac6a06, type: 2}
+--- !u!114 &7228563331668621021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254701966265616306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038d38c6b59f15444a84dfb62549c2e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partDinamic: {fileID: 3915986206702111927}
+  partIdle: {fileID: 2401692643553215334}
 --- !u!195 &99523729773756265
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -45482,6 +45512,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentTurnObject: {fileID: 691909356122237063}
   settings: {fileID: 11400000, guid: 5b6ed5a07270b344ab2f5a6cccd2ae15, type: 2}
+--- !u!114 &2192503304086002727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254701966265616306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c992f55ca3f6b043a443d7434e2c9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partDead: {fileID: 2504769226609346649}
 --- !u!1 &8342663532763726146
 GameObject:
   m_ObjectHideFlags: 0

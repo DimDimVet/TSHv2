@@ -47,7 +47,6 @@ namespace Input
                     isRun = true;
                 }
                 else { isRun = false; }
-
             }
         }
 

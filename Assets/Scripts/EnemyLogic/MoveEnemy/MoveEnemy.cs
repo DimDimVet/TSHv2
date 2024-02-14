@@ -63,7 +63,6 @@ namespace EnemyLogic
                     isRun = true;
                 }
                 else { isRun = false; }
-
             }
         }
         private void SetNavComponent()

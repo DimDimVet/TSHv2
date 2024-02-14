@@ -53,7 +53,7 @@ namespace CameraMain
         }
         private void RunUpdate()
         {
-            if (inputs.Updata().ModeAction != tempMode && isTriger)
+            if (inputs.Updata().ModeAction != tempMode && isTriger || pointCamera == null)
             {
                 isTriger = false;
                 tempMode = inputs.Updata().ModeAction;
@@ -63,7 +63,6 @@ namespace CameraMain
                 lookCamera = tempPositionCamera.LookCamera;
                 isTriger = true;
             }
-
             curPos = pointCamera.position;
             cameraTransf.position = Vector3.Lerp(a: cameraTransf.position,
                                                  b: curPos,
@@ -73,6 +72,7 @@ namespace CameraMain
                                                     b: currRot,
                                                     t: Time.deltaTime * speedMove);
             cameraTransf.LookAt(lookCamera.position);
+
         }
     }
 }
