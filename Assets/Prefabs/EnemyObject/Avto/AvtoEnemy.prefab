@@ -10070,6 +10070,8 @@ GameObject:
   - component: {fileID: 9030178185754701457}
   - component: {fileID: 6239600252744895713}
   - component: {fileID: 1958289019995181967}
+  - component: {fileID: 8302913196263966783}
+  - component: {fileID: 4809864527855769812}
   m_Layer: 0
   m_Name: AvtoEnemy
   m_TagString: Untagged
@@ -10308,6 +10310,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partDead: {fileID: 4534102884063301790}
+--- !u!114 &8302913196263966783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968821607049334371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a374238f38d5d424fa8476fb6784f0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 9ee5a846cd4e3544186dbc4274cb7750, type: 2}
+  poolTransform: {fileID: 2375545348726658541}
+  particle: {fileID: 5711744793643032643}
+--- !u!114 &4809864527855769812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968821607049334371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcae80c02a575d4883a57e0a8e7ef58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipSetting: {fileID: 11400000, guid: fd4b8ae4bf87e284981d19890092d5e9, type: 2}
 --- !u!1 &4454414314092951442
 GameObject:
   m_ObjectHideFlags: 0

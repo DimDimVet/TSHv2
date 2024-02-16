@@ -1,4 +1,6 @@
+using EnemyLogic;
 using Input;
+using Registrator;
 using UnityEngine;
 using Zenject;
 
@@ -17,78 +19,83 @@ namespace Shoot
         private float currentTime, defaultTime, currentTimeClip, defaultTimeClip;
         private bool isBullReLoad = false, isClipReLoad = false, isTrigerSleeve = true;
         private ModeShoot modeShoot;
+        private bool isAtackEnemy = false;
+        private Mode mode;
         private int maxCountClip, currentCountClip;
         private int thisHash;
-        private bool isRun = false, isStopRun = false;
         private int count = 0;
-        //
-        //private IHealt healtExecutor;
+        private bool isStopClass = false, isRun = false;
+
+        private IScanEnemyExecutor scanEnemy;
         private IInputPlayerExecutor inputs;
         [Inject]
-        public void Init(IInputPlayerExecutor _inputs)
+        public void Init(IInputPlayerExecutor _inputs, IScanEnemyExecutor _scanEnemy)
         {
             inputs = _inputs;
+            scanEnemy = _scanEnemy;
         }
-        //public void Init(IInput i, IHealt h)
-        //{
-        //    inputData = i;
-        //    healtExecutor = h;
-        //}
         private void OnEnable()
         {
-            //healtExecutor.OnIsDead += IsDead;
+            scanEnemy.OnFindPlayer += TargetPlayer;
+            scanEnemy.OnLossPlayer += LossTarget;
+        }
+        private void TargetPlayer(Construction player, int recipientHash)
+        {
+            if (recipientHash == thisHash) { isAtackEnemy = true; }
+        }
+        private void LossTarget(int recipientHash)
+        {
+            if (recipientHash == thisHash) { isAtackEnemy = false; }
         }
         void Start()
         {
-            Set();
-            SetSettings();
+            SetClass();
         }
-        public virtual void Set()
-        {
-        }
-        private void SetSettings()
-        {
-            thisHash = gameObject.GetHashCode();
 
-            currentTime = settings.CurrentTime;
-            defaultTime = currentTime;
-
-            maxCountClip = settings.MaxCountClip;
-            currentCountClip = maxCountClip;
-            if (maxCountClip == 1)
-            {
-                currentTimeClip = defaultTime;
-                defaultTimeClip = currentTimeClip;
-            }
-            else
-            {
-                currentTimeClip = settings.CurrentTimeClip;
-                defaultTimeClip = currentTimeClip;
-            }
-            modeShoot = settings.ModeShoot;
-        }
-        private void GetRun()
+        private void SetClass()
         {
             if (!isRun)
             {
-                isRun = true;
+                thisHash = gameObject.GetHashCode();
+                if (thisHash != 0) { isRun = true; }
+                else { isRun = false; }
+
+                modeShoot = settings.ModeShoot;
+                mode = settings.Mode;
+
+                currentTime = settings.CurrentTime;
+                defaultTime = currentTime;
+
+                maxCountClip = settings.MaxCountClip;
+                currentCountClip = maxCountClip;
+                if (maxCountClip == 1)
+                {
+                    currentTimeClip = defaultTime;
+                    defaultTimeClip = currentTimeClip;
+                }
+                else
+                {
+                    currentTimeClip = settings.CurrentTimeClip;
+                    defaultTimeClip = currentTimeClip;
+                }
             }
         }
+
         void Update()
         {
-            if (isStopRun) { return; }
-            if (!isRun) { GetRun(); }
-            ShootActiv();
+            if (isStopClass) { return; }
+            if (!isRun) { SetClass(); }
+            RunUpdate();
         }
-        private void IsDead(int getHash, bool isDead)
+        private void RunUpdate()
         {
-            if (thisHash == getHash) { isStopRun = isDead; }
+            ShootActiv();
         }
         private void ShootActiv()
         {
             if (ReLoadBullet() & ReLoadClip())
             {
-                if (ModeShoot.Player == modeShoot)
+                if (ModeShoot.Player == modeShoot && mode == inputs.Updata().ModeAction)
                 {
                     if (inputs.Updata().MouseLeftButton != 0)
                     {
@@ -99,7 +106,7 @@ namespace Shoot
                 }
                 else
                 {
-                    if (ModeShoot.Enemy == modeShoot)
+                    if (ModeShoot.Enemy == modeShoot && isAtackEnemy)
                     {
                         ShootBullet();
                         isBullReLoad = true;
@@ -109,7 +116,7 @@ namespace Shoot
         }
         private bool ReLoadClip()
         {
-            if (currentCountClip <= 0)
+            if (currentCountClip <= 0 /*&& mode == inputs.Updata().ModeAction*/)
             {
                 currentTimeClip -= Time.deltaTime;
                 if (currentTimeClip <= 0)
@@ -124,7 +131,7 @@ namespace Shoot
         }
         private bool ReLoadBullet()
         {
-            if (isBullReLoad)
+            if (isBullReLoad /*&& mode == inputs.Updata().ModeAction*/)
             {
                 currentTime -= Time.deltaTime;
                 if (currentTime <= 2 && isTrigerSleeve)
@@ -150,5 +157,4 @@ namespace Shoot
 
     }
 }
-
 

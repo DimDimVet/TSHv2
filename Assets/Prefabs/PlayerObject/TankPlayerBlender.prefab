@@ -20058,7 +20058,10 @@ GameObject:
   - component: {fileID: 1179274298214457160}
   - component: {fileID: 7909593595808402768}
   - component: {fileID: 3141831836365334669}
-  - component: {fileID: 5241926310762343442}
+  - component: {fileID: 6150964530886682452}
+  - component: {fileID: 160020119719538613}
+  - component: {fileID: 4009374657312497437}
+  - component: {fileID: 3344230966030784598}
   m_Layer: 0
   m_Name: TankPlayerBlender
   m_TagString: Untagged
@@ -20273,7 +20276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partDead: {fileID: 8578091842681655411}
---- !u!114 &5241926310762343442
+--- !u!114 &6150964530886682452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20288,6 +20291,47 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 9ed45906d901c5449b66c4caf5688db1, type: 2}
   poolTransform: {fileID: 8874210717382226208}
   particle: {fileID: 6165777309218028347}
+--- !u!114 &160020119719538613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637375663211714923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcae80c02a575d4883a57e0a8e7ef58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipSetting: {fileID: 11400000, guid: a011521f50c87f44795a8807679568d5, type: 2}
+--- !u!114 &4009374657312497437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637375663211714923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a89816566a75644eb3d94533b1d09ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 08d8fdaa151d24d4d990ed76403914a2, type: 2}
+  poolTransform: {fileID: 9094503143978709280}
+  particle: {fileID: 4277949139293709195}
+--- !u!114 &3344230966030784598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637375663211714923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2967688f3f99674aa9acc17c5b2f8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipSetting: {fileID: 11400000, guid: b5d465e3f85c6264999413549d22fb89, type: 2}
 --- !u!1 &3308639749213505074
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using Input;
 using Shoot;
 using UnityEngine;
 
@@ -14,5 +15,7 @@ public class ShootSettings : ScriptableObject
 
     [Header("Режим управления")]
     public ModeShoot ModeShoot;
+    [Header("Режим типа орудия")]
+    public Mode Mode;
 
 }
