@@ -7,13 +7,12 @@ namespace AudioScene
     public class AudioShoot : MonoBehaviour
     {
         [SerializeField] private AudioClipSetting audioClipSetting;
-        public AudioClipSetting AudioClipSetting { get { return audioClipSetting; } }
-        public Mode Mode { get { return mode; } }
         private Mode mode;
         public AudioSource AudioSource { get { return audioSource; } }
         private AudioSource audioSource;
         public int ThisHash { get { return thisHash; } }
         private int thisHash;
+
         private bool isStopClass = false, isRun = false;
 
         private IAudioShootExecutor audioShoot;
@@ -34,9 +33,7 @@ namespace AudioScene
         {
             if (!isRun)
             {
-                audioSource = gameObject.GetComponent<AudioSource>();
-                if (audioSource == null) { audioSource = gameObject.AddComponent<AudioSource>(); }
-
+                audioSource = gameObject.AddComponent<AudioSource>();
                 thisHash = gameObject.GetHashCode();
                 if (audioSource != null)
                 {

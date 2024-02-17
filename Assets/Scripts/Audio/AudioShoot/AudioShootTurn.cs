@@ -7,9 +7,8 @@ namespace AudioScene
     {
         public override void ShootAudio(int _thisHash, Mode mode)
         {
-            if (ThisHash == _thisHash && Mode == Mode.Turn)
+            if (ThisHash == _thisHash && mode == Mode.Turn )
             {
-                AudioSource.clip = AudioClipSetting.AudioClip;
                 AudioSource.Play();
             }
         }

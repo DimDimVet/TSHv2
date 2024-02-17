@@ -20059,7 +20059,7 @@ GameObject:
   - component: {fileID: 7909593595808402768}
   - component: {fileID: 3141831836365334669}
   - component: {fileID: 6150964530886682452}
-  - component: {fileID: 160020119719538613}
+  - component: {fileID: 7578588281938156311}
   - component: {fileID: 4009374657312497437}
   - component: {fileID: 3344230966030784598}
   m_Layer: 0
@@ -20291,7 +20291,7 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 9ed45906d901c5449b66c4caf5688db1, type: 2}
   poolTransform: {fileID: 8874210717382226208}
   particle: {fileID: 6165777309218028347}
---- !u!114 &160020119719538613
+--- !u!114 &7578588281938156311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20300,7 +20300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2637375663211714923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dcae80c02a575d4883a57e0a8e7ef58, type: 3}
+  m_Script: {fileID: 11500000, guid: 974862c749cdc6347b6dad0cb66f7772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioClipSetting: {fileID: 11400000, guid: a011521f50c87f44795a8807679568d5, type: 2}
