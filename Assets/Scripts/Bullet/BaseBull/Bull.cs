@@ -1,3 +1,4 @@
+using Healt;
 using Registrator;
 using UnityEngine;
 using Zenject;
@@ -15,36 +16,28 @@ namespace Bulls
     public class Bull : MonoBehaviour
     {
         [SerializeField] private BulletSettings settings;
-        public bool IsForwardPlus { get { return isForwardPlus; } set { isForwardPlus = value; } }
         private Rigidbody rbThisObject;
         private TypeBullet typeBullet;
         private float speedBullet;
         private float killTime, defaultTime;
         private int damage;
         private bool isBullKill = true, isShootTriger = true;
-        private bool isForwardPlus = true;
+        protected bool isForwardPlus = true;
         private RaycastHit hit;
-        private float diametrColl;
+        private float diametrColl,maxDistance;
         private Construction[] data;
         private int tempHash;
         private int thisHash;
         private bool isRun = false, isStopRun = false;
         //
+        private IHealt healtExecutor;
         private IListDataExecutor dataList;
         [Inject]
-        public void Init(IListDataExecutor _dataList)
+        public void Init(IListDataExecutor _dataList, IHealt _healtExecutor)
         {
             dataList = _dataList;
+            healtExecutor = _healtExecutor;
         }
-        //
-
-
-        //private IHealt healtExecutor;
-        //[Inject]
-        //public void Init(IHealt h)
-        //{
-        //    healtExecutor = h;
-        //}
 
         void Start()
         {
@@ -59,6 +52,7 @@ namespace Bulls
             defaultTime = settings.KillTime;
             damage = settings.Damage;
             diametrColl = settings.DiametrColl;
+            maxDistance = diametrColl * 1.5f;
         }
         private void GetRun()
         {
@@ -82,7 +76,7 @@ namespace Bulls
         {
             if (typeBullet != TypeBullet.Sleeve)
             {
-                MoveForward();
+                rbThisObject.velocity = transform.forward * speedBullet;
                 isBullKill = true;
                 if (CollisionObject())
                 { ReternBullet(); }
@@ -99,11 +93,6 @@ namespace Bulls
                 { isShootTriger = true; ShootSleeve(); }
             }
         }
-        private void MoveForward()
-        {
-            if (isForwardPlus) { rbThisObject.velocity = transform.right * speedBullet; }
-            else { rbThisObject.velocity = -transform.right * speedBullet; }
-        }
         private bool KillTimeBullet()
         {
             if (isBullKill)
@@ -119,24 +108,26 @@ namespace Bulls
         }
         private bool CollisionObject()
         {
-            Physics.SphereCast(gameObject.transform.position, diametrColl, Vector3.zero, out hit);
+            Physics.SphereCast(gameObject.transform.position, diametrColl, gameObject.transform.forward, out hit, maxDistance);
+
             if (hit.collider != null)
             {
                 tempHash = hit.collider.gameObject.GetHashCode();
                 if (tempHash == thisHash) { return false; }
-                if (tempHash != 0) { /*healtExecutor.SetDamage(tempHash, damage);*/Debug.Log($"{tempHash}->{damage}"); return true; }
+                if (tempHash != 0) { healtExecutor.SetDamage(tempHash, damage);  return true; }
             }
             return false;
         }
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(gameObject.transform.position, diametrColl);
+            Gizmos.DrawLine(gameObject.transform.position, gameObject.transform.position+ gameObject.transform.forward);
+            Gizmos.DrawWireSphere(gameObject.transform.position + gameObject.transform.forward, diametrColl);
         }
-        public virtual void ReternBullet()
+        protected virtual void ReternBullet()
         {
         }
-        public virtual void ShootSleeve()
+        protected virtual void ShootSleeve()
         {
         }
     }

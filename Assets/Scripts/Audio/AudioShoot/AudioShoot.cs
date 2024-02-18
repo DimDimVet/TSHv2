@@ -8,11 +8,8 @@ namespace AudioScene
     {
         [SerializeField] private AudioClipSetting audioClipSetting;
         private Mode mode;
-        public AudioSource AudioSource { get { return audioSource; } }
-        private AudioSource audioSource;
-        public int ThisHash { get { return thisHash; } }
-        private int thisHash;
-
+        protected AudioSource audioSource;
+        protected int thisHash;
         private bool isStopClass = false, isRun = false;
 
         private IAudioShootExecutor audioShoot;
@@ -54,7 +51,7 @@ namespace AudioScene
             if (!isRun) { SetClass(); }
         }
 
-        public virtual void ShootAudio(int _thisHash, Mode mode)
+        protected virtual void ShootAudio(int _thisHash, Mode mode)
         {
             if (thisHash == _thisHash)
             {

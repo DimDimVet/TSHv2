@@ -1,3 +1,4 @@
+using Healt;
 using Input;
 using Registrator;
 using UnityEngine;
@@ -17,16 +18,19 @@ namespace EnemyLogic
         private int thisHash;
         private bool isStopClass = false, isRun = false;
 
+        private IHealt healtExecutor;
         private IScanEnemyExecutor scanEnemy;
         [Inject]
-        public void Init(IScanEnemyExecutor _scanEnemy)
+        public void Init(IScanEnemyExecutor _scanEnemy, IHealt _healtExecutor)
         {
             scanEnemy = _scanEnemy;
+            healtExecutor = _healtExecutor;
         }
         private void OnEnable()
         {
             scanEnemy.OnFindPlayer += TargetPlayer;
             scanEnemy.OnLossPlayer += LossTarget;
+            healtExecutor.OnIsDead += IsDead;
         }
         private void TargetPlayer(Construction player, int recipientHash)
         {
@@ -35,6 +39,10 @@ namespace EnemyLogic
         private void LossTarget(int recipientHash)
         {
             if (recipientHash == thisHash) { target = null; }
+        }
+        private void IsDead(int getHash, bool isDead)
+        {
+            if (thisHash == getHash) { isStopClass = isDead; }
         }
         void Start()
         {

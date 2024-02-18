@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3953393120735436814}
   - component: {fileID: 1036278762089398638}
   - component: {fileID: -4672308348949474256}
-  - component: {fileID: -408796455103165982}
+  - component: {fileID: 4862181325253766919}
   m_Layer: 0
   m_Name: SleeveAvtoEnemy
   m_TagString: Untagged
@@ -136,7 +136,7 @@ CapsuleCollider:
   m_Height: 0.049923144
   m_Direction: 1
   m_Center: {x: 0.000000023283064, y: 0.000000039115548, z: 0.012913039}
---- !u!114 &-408796455103165982
+--- !u!114 &4862181325253766919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,9 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3751381745668113648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac5631ab4cf91f45bd2712c24b2d57e, type: 3}
+  m_Script: {fileID: 11500000, guid: a7e547ccd29cb1744a22a3304ea329e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullSettings: {fileID: 11400000, guid: efe497609e56f11459aff2ee26e47525, type: 2}
-  typeSleeve: 1
-  body: {fileID: 1036278762089398638}
+  settings: {fileID: 11400000, guid: e3a3352b88b511f46842811d20cb5e26, type: 2}

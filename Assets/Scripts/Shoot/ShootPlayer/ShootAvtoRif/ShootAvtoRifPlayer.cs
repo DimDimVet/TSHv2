@@ -1,5 +1,6 @@
 using AudioScene;
 using Input;
+using Pools;
 using UnityEngine;
 using Zenject;
 
@@ -7,25 +8,30 @@ namespace Shoot
 {
     public class ShootAvtoRifPlayer : Shoot
     {
-        [SerializeField] private Transform poolTransform;
+        [SerializeField] private Transform rifPoolTransform;
+        [SerializeField] private Transform rifSleevePoolTransform;
         [SerializeField] private ParticleSystem particle;
 
+        private IPlayerRifPoolExecutor playerRifPool;
+        private IPlayerRifSleevePoolExecutor playerRifSleevePool;
         private IAudioShootExecutor audioShoot;
         [Inject]
-        public void Init(IAudioShootExecutor _audioShoot)
+        public void Init(IAudioShootExecutor _audioShoot, IPlayerRifPoolExecutor _playerRifPool, IPlayerRifSleevePoolExecutor _playerRifSleevePool)
         {
             audioShoot = _audioShoot;
+            playerRifPool = _playerRifPool;
+            playerRifSleevePool= _playerRifSleevePool;
         }
-        public override void ShootBullet()
+        protected override void ShootBullet()
         {
-            Debug.Log("PlayerAvtoRifShoot");
             particle.Play();
-            audioShoot.OnShootAudio(ThisHash,Mode.AvtoRif);
-            //poolBull.GetObject(gameObject.transform.localScale.x, poolTransform);
+            audioShoot.OnShootAudio(thisHash, Mode.AvtoRif);
+            currentCountClip--;
+            playerRifPool.GetObject(gameObject.transform.localScale.x, rifPoolTransform);
         }
-        public override void ShootBulletSleeve()
+        protected override void ShootBulletSleeve()
         {
-            Debug.Log("PlayerSleeveAvtoRifShoot");
+            playerRifSleevePool.GetObject(gameObject.transform.localScale.y, rifSleevePoolTransform);
         }
 
     }

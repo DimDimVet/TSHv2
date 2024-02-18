@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3095040167076213734}
   - component: {fileID: 5433533321345579834}
   - component: {fileID: 6586144651548207535}
-  - component: {fileID: 2270488049357510904}
+  - component: {fileID: 3541554846003272305}
   m_Layer: 0
   m_Name: BullTankEnemy
   m_TagString: Untagged
@@ -112,7 +112,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2270488049357510904
+--- !u!114 &3541554846003272305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,9 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9191355760498519246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8787d92f56f0762479fcd70405aec257, type: 3}
+  m_Script: {fileID: 11500000, guid: fa203525b510b1340ae24aa11193ed3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullSettings: {fileID: 11400000, guid: 9751747f3aa65894da1b2cc42d676506, type: 2}
-  typeSleeve: 0
-  body: {fileID: 3095040167076213734}
+  settings: {fileID: 11400000, guid: 22ffba8d21994b548b5e5b341a205d8d, type: 2}

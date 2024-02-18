@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8187586634136407233}
   - component: {fileID: 2142640342774839432}
   - component: {fileID: 1896766541589414783}
-  - component: {fileID: -523565347078847042}
+  - component: {fileID: 1079689467382918809}
   m_Layer: 0
   m_Name: BullSleeve
   m_TagString: Untagged
@@ -136,7 +136,7 @@ CapsuleCollider:
   m_Height: 0.1601451
   m_Direction: 1
   m_Center: {x: 0.013772532, y: 0, z: 0}
---- !u!114 &-523565347078847042
+--- !u!114 &1079689467382918809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,9 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1347269582274150208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d1641544e7192d44b03aa4218d4ea07, type: 3}
+  m_Script: {fileID: 11500000, guid: ba9ac29066490dc40b4193e445c45eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullSettings: {fileID: 11400000, guid: b3bb462423abd3e4fb0a4e2bc0568139, type: 2}
-  typeSleeve: 1
-  body: {fileID: 2142640342774839432}
+  settings: {fileID: 11400000, guid: 61c608a4edccaa4469876458814871ed, type: 2}

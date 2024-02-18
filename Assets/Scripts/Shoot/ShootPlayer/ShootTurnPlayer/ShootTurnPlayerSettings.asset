@@ -16,3 +16,4 @@ MonoBehaviour:
   MaxCountClip: 1
   CurrentTimeClip: 5
   ModeShoot: 0
+  Mode: 0

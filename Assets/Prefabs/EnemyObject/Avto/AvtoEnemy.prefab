@@ -10072,6 +10072,7 @@ GameObject:
   - component: {fileID: 1958289019995181967}
   - component: {fileID: 8302913196263966783}
   - component: {fileID: 4809864527855769812}
+  - component: {fileID: 8182890204264706759}
   m_Layer: 0
   m_Name: AvtoEnemy
   m_TagString: Untagged
@@ -10323,7 +10324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 9ee5a846cd4e3544186dbc4274cb7750, type: 2}
-  poolTransform: {fileID: 2375545348726658541}
+  poolBullTransform: {fileID: 2375545348726658541}
+  poolBullSleeveTransform: {fileID: 4938748562627592359}
   particle: {fileID: 5711744793643032643}
 --- !u!114 &4809864527855769812
 MonoBehaviour:
@@ -10338,6 +10340,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClipSetting: {fileID: 11400000, guid: fd4b8ae4bf87e284981d19890092d5e9, type: 2}
+--- !u!114 &8182890204264706759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968821607049334371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54c6fdf07e01e24bad1ce8ee2ddb751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsHealt: {fileID: 11400000, guid: 720cee85eb71cd740afbcc5353a496d4, type: 2}
 --- !u!1 &4454414314092951442
 GameObject:
   m_ObjectHideFlags: 0
@@ -25411,6 +25426,11 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8642698630525657144, guid: 023adf9c5618f9846bbc29eb730750ba,
+        type: 3}
+      propertyPath: trackingObject
+      value: 
+      objectReference: {fileID: 3968821607049334371}
     m_RemovedComponents:
     - {fileID: 3596400977619696868, guid: 023adf9c5618f9846bbc29eb730750ba, type: 3}
     m_RemovedGameObjects: []

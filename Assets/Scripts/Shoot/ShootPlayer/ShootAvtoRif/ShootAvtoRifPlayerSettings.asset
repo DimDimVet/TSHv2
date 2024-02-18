@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShootAvtoRifPlayerSettings
   m_EditorClassIdentifier: 
   CurrentTime: 0.1
-  MaxCountClip: 40
+  MaxCountClip: 10
   CurrentTimeClip: 3
   ModeShoot: 0
   Mode: 1

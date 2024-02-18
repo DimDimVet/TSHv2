@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5544716856742590196}
   - component: {fileID: -302095131663994235}
   - component: {fileID: -8617464319121881310}
-  - component: {fileID: 3447121531587383304}
+  - component: {fileID: 8764603668871533924}
   m_Layer: 0
   m_Name: SleeveBullTankEnemy
   m_TagString: Untagged
@@ -136,7 +136,7 @@ CapsuleCollider:
   m_Height: 0.18926144
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: -0.012366712}
---- !u!114 &3447121531587383304
+--- !u!114 &8764603668871533924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,9 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6245140225712637890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa22073860b367d478f85385d89a5c4e, type: 3}
+  m_Script: {fileID: 11500000, guid: f26e0288806d0794da110c6b3dbf0dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullSettings: {fileID: 11400000, guid: c967aa4bd9a55074689ebd1625729c2b, type: 2}
-  typeSleeve: 1
-  body: {fileID: -302095131663994235}
+  settings: {fileID: 11400000, guid: 71a05ff63881dbf439e77800566dc651, type: 2}

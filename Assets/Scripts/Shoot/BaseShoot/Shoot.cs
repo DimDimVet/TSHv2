@@ -1,4 +1,5 @@
 using EnemyLogic;
+using Healt;
 using Input;
 using Registrator;
 using UnityEngine;
@@ -13,31 +14,33 @@ namespace Shoot
     }
     public class Shoot : MonoBehaviour
     {
-        public int CurrentCountClip { get { return currentCountClip; } set { currentCountClip = value; } }
-        public int ThisHash { get { return thisHash; } }
         [SerializeField] private ShootSettings settings;
         private float currentTime, defaultTime, currentTimeClip, defaultTimeClip;
         private bool isBullReLoad = false, isClipReLoad = false, isTrigerSleeve = true;
         private ModeShoot modeShoot;
         private bool isAtackEnemy = false;
         private Mode mode;
-        private int maxCountClip, currentCountClip;
-        private int thisHash;
+        private int maxCountClip;
+        protected int currentCountClip;
+        protected int thisHash;
         private int count = 0;
         private bool isStopClass = false, isRun = false;
 
+        private IHealt healtExecutor;
         private IScanEnemyExecutor scanEnemy;
         private IInputPlayerExecutor inputs;
         [Inject]
-        public void Init(IInputPlayerExecutor _inputs, IScanEnemyExecutor _scanEnemy)
+        public void Init(IInputPlayerExecutor _inputs, IScanEnemyExecutor _scanEnemy,IHealt _healtExecutor)
         {
             inputs = _inputs;
             scanEnemy = _scanEnemy;
+            healtExecutor= _healtExecutor;
         }
         private void OnEnable()
         {
             scanEnemy.OnFindPlayer += TargetPlayer;
             scanEnemy.OnLossPlayer += LossTarget;
+            healtExecutor.OnIsDead += IsDead;
         }
         private void TargetPlayer(Construction player, int recipientHash)
         {
@@ -46,6 +49,10 @@ namespace Shoot
         private void LossTarget(int recipientHash)
         {
             if (recipientHash == thisHash) { isAtackEnemy = false; }
+        }
+        private void IsDead(int getHash, bool isDead)
+        {
+            if (thisHash == getHash) { isStopClass = isDead; }
         }
         void Start()
         {
@@ -116,7 +123,7 @@ namespace Shoot
         }
         private bool ReLoadClip()
         {
-            if (currentCountClip <= 0 /*&& mode == inputs.Updata().ModeAction*/)
+            if (currentCountClip <= 0 )
             {
                 currentTimeClip -= Time.deltaTime;
                 if (currentTimeClip <= 0)
@@ -131,7 +138,7 @@ namespace Shoot
         }
         private bool ReLoadBullet()
         {
-            if (isBullReLoad /*&& mode == inputs.Updata().ModeAction*/)
+            if (isBullReLoad )
             {
                 currentTime -= Time.deltaTime;
                 if (currentTime <= 2 && isTrigerSleeve)
@@ -148,10 +155,10 @@ namespace Shoot
             }
             return true;
         }
-        public virtual void ShootBullet()
+        protected virtual void ShootBullet()
         {
         }
-        public virtual void ShootBulletSleeve()
+        protected virtual void ShootBulletSleeve()
         {
         }
 

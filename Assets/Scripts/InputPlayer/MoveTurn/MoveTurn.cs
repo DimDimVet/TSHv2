@@ -1,3 +1,4 @@
+using Healt;
 using Registrator;
 using UnityEngine;
 using Zenject;
@@ -20,15 +21,24 @@ namespace Input
 
         private bool isStopClass = false, isRun = false;
 
+        private IHealt healtExecutor;
         private IListDataExecutor dataList;
         private IInputPlayerExecutor inputs;
         [Inject]
-        public void Init(IInputPlayerExecutor _inputs, IListDataExecutor _dataList)
+        public void Init(IInputPlayerExecutor _inputs, IListDataExecutor _dataList, IHealt _healtExecutor)
         {
             inputs = _inputs;
             dataList = _dataList;
+            healtExecutor = _healtExecutor;
         }
-
+        private void OnEnable()
+        {
+            healtExecutor.OnIsDead += IsDead;
+        }
+        private void IsDead(int getHash, bool isDead)
+        {
+            if (parentObject.Hash == getHash) { isStopClass = isDead; }
+        }
         void Start()
         {
             SetClass();

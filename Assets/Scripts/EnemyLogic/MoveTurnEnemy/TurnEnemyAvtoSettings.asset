@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TurnEnemyAvtoSettings
   m_EditorClassIdentifier: 
   SpeedTurn: 15
-  MaxOffSetX: 0.007
+  MaxOffSetX: 0.1

@@ -45262,8 +45262,9 @@ GameObject:
   - component: {fileID: 6216280572411010939}
   - component: {fileID: 1302730009766487439}
   - component: {fileID: 2192503304086002727}
-  - component: {fileID: 414977280030086403}
+  - component: {fileID: 8349919639763014921}
   - component: {fileID: 5089169239871878182}
+  - component: {fileID: 4816404922040723156}
   m_Layer: 0
   m_Name: TankEnemy
   m_TagString: Untagged
@@ -45527,7 +45528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partDead: {fileID: 2504769226609346649}
---- !u!114 &414977280030086403
+--- !u!114 &8349919639763014921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45536,11 +45537,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8254701966265616306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a374238f38d5d424fa8476fb6784f0e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d3d612f031db4c43b0718392eb5b3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 994f1e39552096b47b7a735ccc54d66b, type: 2}
-  poolTransform: {fileID: 1238480299770470654}
+  poolBullTransform: {fileID: 1238480299770470654}
+  poolBullSleeveTransform: {fileID: 251756251890276995}
   particle: {fileID: 7886443493745761380}
 --- !u!114 &5089169239871878182
 MonoBehaviour:
@@ -45555,6 +45557,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClipSetting: {fileID: 11400000, guid: e259cd61d07494540b8d6b9d1b6cfbee, type: 2}
+--- !u!114 &4816404922040723156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254701966265616306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54c6fdf07e01e24bad1ce8ee2ddb751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsHealt: {fileID: 11400000, guid: ef1b344f69695a746a0b5af95f7d65d7, type: 2}
 --- !u!1 &8342663532763726146
 GameObject:
   m_ObjectHideFlags: 0
@@ -45795,6 +45810,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8395658355873952761, guid: 023adf9c5618f9846bbc29eb730750ba,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642698630525657144, guid: 023adf9c5618f9846bbc29eb730750ba,
+        type: 3}
+      propertyPath: trackingObject
+      value: 
+      objectReference: {fileID: 8254701966265616306}
     m_RemovedComponents:
     - {fileID: 3596400977619696868, guid: 023adf9c5618f9846bbc29eb730750ba, type: 3}
     m_RemovedGameObjects: []

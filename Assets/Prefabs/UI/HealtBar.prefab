@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 5888017393936735405}
   - component: {fileID: 8395658355873952761}
   - component: {fileID: 520329873966137341}
-  - component: {fileID: 3596400977619696868}
+  - component: {fileID: 8642698630525657144}
   m_Layer: 5
   m_Name: HealtBar
   m_TagString: Untagged
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &520329873966137341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3596400977619696868
+--- !u!114 &8642698630525657144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5315060309022885586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f79d408860442f45b93d6894dbd7184, type: 3}
+  m_Script: {fileID: 11500000, guid: 57fc47c7d40f7ab40a92e3512156e936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 5465296960291626855}

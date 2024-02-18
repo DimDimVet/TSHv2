@@ -1,4 +1,6 @@
+using Healt;
 using UnityEngine;
+using Zenject;
 
 namespace Effect
 {
@@ -6,13 +8,22 @@ namespace Effect
     {
         [SerializeField] private ParticleSystem partDead;
         private int thisHash;
-        private bool isPart = true, isDead=false;
+        private bool isPart = true, isDead = false;
         private bool isStopClass = false, isRun = false;
 
+        private IHealt healtExecutor;
+        [Inject]
+        public void Init(IHealt _healtExecutor)
+        {
+            healtExecutor = _healtExecutor;
+        }
         private void OnEnable()
         {
-            isDead = false;
-            //OnIsDead += StopRun;
+            healtExecutor.OnIsDead += IsDead;
+        }
+        private void IsDead(int getHash, bool _isDead)
+        {
+            if (thisHash == getHash) { isDead = _isDead; }
         }
         void Start()
         {

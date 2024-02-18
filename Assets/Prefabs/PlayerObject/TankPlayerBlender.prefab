@@ -20062,6 +20062,7 @@ GameObject:
   - component: {fileID: 7578588281938156311}
   - component: {fileID: 4009374657312497437}
   - component: {fileID: 3344230966030784598}
+  - component: {fileID: 9060184661497380510}
   m_Layer: 0
   m_Name: TankPlayerBlender
   m_TagString: Untagged
@@ -20289,7 +20290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 9ed45906d901c5449b66c4caf5688db1, type: 2}
-  poolTransform: {fileID: 8874210717382226208}
+  turnPoolTransform: {fileID: 8874210717382226208}
+  turnSleevePoolTransform: {fileID: 6870855573494367559}
   particle: {fileID: 6165777309218028347}
 --- !u!114 &7578588281938156311
 MonoBehaviour:
@@ -20317,7 +20319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 08d8fdaa151d24d4d990ed76403914a2, type: 2}
-  poolTransform: {fileID: 9094503143978709280}
+  rifPoolTransform: {fileID: 9094503143978709280}
+  rifSleevePoolTransform: {fileID: 5639065612979723157}
   particle: {fileID: 4277949139293709195}
 --- !u!114 &3344230966030784598
 MonoBehaviour:
@@ -20332,6 +20335,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClipSetting: {fileID: 11400000, guid: b5d465e3f85c6264999413549d22fb89, type: 2}
+--- !u!114 &9060184661497380510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637375663211714923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54c6fdf07e01e24bad1ce8ee2ddb751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsHealt: {fileID: 11400000, guid: 3b3347a66f20de2429cc5793409f8ae4, type: 2}
 --- !u!1 &3308639749213505074
 GameObject:
   m_ObjectHideFlags: 0

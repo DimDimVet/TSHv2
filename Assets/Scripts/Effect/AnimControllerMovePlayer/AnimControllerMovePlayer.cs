@@ -1,4 +1,6 @@
+using Healt;
 using Input;
+using Registrator;
 using UnityEngine;
 using Zenject;
 
@@ -10,14 +12,26 @@ namespace Effect
         private Animator animator;
         private float speedAnim;
         private string tankPlayerTrackRight, tankPlayerTrackForward, tankPlayerTrackLeft, tankPlayerTrackBack;
-
+        private int thisHash;
         private bool isStopClass = false, isRun = false;
 
+        private IHealt healtExecutor;
+        private IListDataExecutor dataList;
         private IInputPlayerExecutor inputs;
         [Inject]
-        public void Init(IInputPlayerExecutor _inputs)
+        public void Init(IInputPlayerExecutor _inputs, IListDataExecutor _dataList, IHealt _healtExecutor)
         {
             inputs = _inputs;
+            dataList = _dataList;
+            healtExecutor = _healtExecutor;
+        }
+        private void OnEnable()
+        {
+            healtExecutor.OnIsDead += IsDead;
+        }
+        private void IsDead(int getHash, bool isDead)
+        {
+            if (thisHash == getHash) { isStopClass = isDead; }
         }
         void Start()
         {
@@ -35,6 +49,7 @@ namespace Effect
             if (!isRun)
             {
                 animator = gameObject.GetComponent<Animator>();
+                thisHash = gameObject.GetHashCode();
                 if (animator != null) { isRun = true; }
                 else { isRun = false; }
             }

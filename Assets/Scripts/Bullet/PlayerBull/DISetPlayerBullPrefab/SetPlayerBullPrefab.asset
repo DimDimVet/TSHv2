@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d201fc91715f56948a9951204e343814, type: 3}
+  m_Name: SetPlayerBullPrefab
+  m_EditorClassIdentifier: 
+  PlayerBullPrefab:
+    SetTurnObject: {fileID: 3126515883450502261, guid: 0df5f34b4f0530d47a8630b421a1aa6b,
+      type: 3}
+    SetRifObject: {fileID: 6734328804877840724, guid: dd3da5e7e0ebffb43adc123e64e1f5b3,
+      type: 3}
+    SetTurnSleeveObject: {fileID: 1347269582274150208, guid: 3e7100d1568e72e479426ec1cd3cd6bb,
+      type: 3}
+    SetRifSleeveObject: {fileID: 4742743726184200396, guid: 29054d2756876a0479f1f2dd4b685ae8,
+      type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2313562828803445662}
   - component: {fileID: 8769149915114713220}
   - component: {fileID: 8293916138348917832}
-  - component: {fileID: -5163892609674174860}
+  - component: {fileID: 4537175786180404468}
   m_Layer: 0
   m_Name: BullBB
   m_TagString: Untagged
@@ -112,7 +112,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-5163892609674174860
+--- !u!114 &4537175786180404468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,9 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3126515883450502261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecb7691733d6a8044bd2c4668a32c25b, type: 3}
+  m_Script: {fileID: 11500000, guid: ebb50737fd311b44e9d5d57a92c90921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullSettings: {fileID: 11400000, guid: e18b483eeecdcdd4abb0c1944c052385, type: 2}
-  typeSleeve: 0
-  body: {fileID: 2313562828803445662}
+  settings: {fileID: 11400000, guid: b4bd32dadd4eb654683626c177f74544, type: 2}

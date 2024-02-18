@@ -1,5 +1,6 @@
 using AudioScene;
 using Input;
+using Pools;
 using UnityEngine;
 using Zenject;
 
@@ -7,25 +8,30 @@ namespace Shoot
 {
     public class ShootTurnPlayer : Shoot
     {
-        [SerializeField] private Transform poolTransform;
+        [SerializeField] private Transform turnPoolTransform;
+        [SerializeField] private Transform turnSleevePoolTransform;
         [SerializeField] private ParticleSystem particle;
 
+        private IPlayerTurnPoolExecutor playerTurnPool;
+        private IPlayerTurnSleevePoolExecutor playerTurnSleevePool;
         private IAudioShootExecutor audioShoot;
         [Inject]
-        public void Init(IAudioShootExecutor _audioShoot)
+        public void Init(IAudioShootExecutor _audioShoot, IPlayerTurnPoolExecutor _playerTurnPool, IPlayerTurnSleevePoolExecutor _playerTurnSleevePool)
         {
             audioShoot = _audioShoot;
+            playerTurnPool = _playerTurnPool;
+            playerTurnSleevePool= _playerTurnSleevePool;
         }
-        public override void ShootBullet()
+        protected override void ShootBullet()
         {
-            Debug.Log("PlayerTurnShoot");
             particle.Play();
-            audioShoot.OnShootAudio(ThisHash, Mode.Turn);
-            //poolBull.GetObject(gameObject.transform.localScale.x, poolTransform);
+            audioShoot.OnShootAudio(thisHash, Mode.Turn);
+            currentCountClip--;
+            playerTurnPool.GetObject(gameObject.transform.localScale.x, turnPoolTransform);
         }
-        public override void ShootBulletSleeve()
+        protected override void ShootBulletSleeve()
         {
-            Debug.Log("PlayerSleeveTurnShoot");
+            playerTurnSleevePool.GetObject(gameObject.transform.localScale.y, turnSleevePoolTransform);
         }
 
     }

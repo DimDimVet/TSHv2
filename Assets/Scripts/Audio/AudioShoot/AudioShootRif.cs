@@ -1,15 +1,14 @@
 using Input;
-using UnityEngine;
 
 namespace AudioScene
 {
     public class AudioShootRif : AudioShoot
     {
-        public override void ShootAudio(int _thisHash, Mode mode)
+        protected override void ShootAudio(int _thisHash, Mode mode)
         {
-            if (ThisHash == _thisHash && mode == Mode.AvtoRif )
+            if (thisHash == _thisHash && mode == Mode.AvtoRif)
             {
-                AudioSource.Play();
+                audioSource.Play();
             }
         }
     }
