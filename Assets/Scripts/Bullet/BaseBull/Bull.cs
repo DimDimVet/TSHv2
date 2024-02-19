@@ -2,6 +2,8 @@ using Healt;
 using Registrator;
 using UnityEngine;
 using Zenject;
+using static Codice.Client.Common.Servers.RecentlyUsedServers;
+using static PlasticPipe.Server.MonitorStats;
 
 namespace Bulls
 {
@@ -21,8 +23,10 @@ namespace Bulls
         private float speedBullet;
         private float killTime, defaultTime;
         private int damage;
+        private float percentDamage;
+        private float percent, currentDamag;
         private bool isBullKill = true, isShootTriger = true;
-        protected bool isForwardPlus = true;
+        //protected bool isForwardPlus = true;
         private RaycastHit hit;
         private float diametrColl,maxDistance;
         private Construction[] data;
@@ -53,6 +57,7 @@ namespace Bulls
             damage = settings.Damage;
             diametrColl = settings.DiametrColl;
             maxDistance = diametrColl * 1.5f;
+            percentDamage=settings.PercentDamage;
         }
         private void GetRun()
         {
@@ -114,9 +119,19 @@ namespace Bulls
             {
                 tempHash = hit.collider.gameObject.GetHashCode();
                 if (tempHash == thisHash) { return false; }
-                if (tempHash != 0) { healtExecutor.SetDamage(tempHash, damage);  return true; }
+                if (tempHash != 0) 
+                { 
+                    healtExecutor.SetDamage(tempHash, DamagRandom(), gameObject.transform.forward); 
+                    return true;
+                }
             }
             return false;
+        }
+        private int DamagRandom()
+        {
+            percent = Random.Range(1, percentDamage);
+            currentDamag = Random.value * damage * percent;
+            return (int)currentDamag;
         }
         private void OnDrawGizmosSelected()
         {

@@ -22,6 +22,7 @@ namespace Bulls
         protected override void ShootSleeve()
         {
         }
+
         public class Factory : PlaceholderFactory<PlayerRif>
         {
         }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerHealtSettings
   m_EditorClassIdentifier: 
   HealtCount: 15
-  CostObject: 1
+  CostObject: 0

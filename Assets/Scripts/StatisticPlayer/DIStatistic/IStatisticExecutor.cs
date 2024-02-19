@@ -6,6 +6,6 @@ namespace StatisticPlayer
     {
         Action<Statistic> OnUpdateStatistic { get; set; }
 
-        void InitStatistic();
+        bool InitStatistic();
     }
 }

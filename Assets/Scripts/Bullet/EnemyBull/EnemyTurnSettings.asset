@@ -17,4 +17,4 @@ MonoBehaviour:
   KillTime: 10
   DiametrColl: 0.1
   Damage: 10
-  PercentDamage: 50
+  PercentDamage: 5

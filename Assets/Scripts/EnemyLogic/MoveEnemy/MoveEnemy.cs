@@ -43,9 +43,13 @@ namespace EnemyLogic
         {
             if (recipientHash == thisHash) { currentPosition = null; }
         }
-        private void IsDead(int getHash, bool isDead)
+        private void IsDead(int getHash, bool isDead, Vector3 _directionDamage)
         {
-            if (thisHash == getHash) { isStopClass = isDead; }
+            if (thisHash == getHash)
+            {
+                isStopClass = isDead;
+                thisObject.NavMeshAgent.enabled = false;
+            }
         }
         void Start()
         {

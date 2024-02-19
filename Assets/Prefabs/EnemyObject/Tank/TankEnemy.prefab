@@ -5008,6 +5008,7 @@ GameObject:
   - component: {fileID: 426826479178827844}
   - component: {fileID: 4094606189013146223}
   - component: {fileID: 4967724832507091518}
+  - component: {fileID: 6969844391281467115}
   m_Layer: 0
   m_Name: TurnEnemy
   m_TagString: Untagged
@@ -5108,6 +5109,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.8409152, y: 0.8618152, z: 4.977131}
   m_Center: {x: -0.030225039, y: 1.2138546, z: -0.062604904}
+--- !u!54 &6969844391281467115
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691909356122237063}
+  serializedVersion: 4
+  m_Mass: 2
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &820793289451809612
 GameObject:
   m_ObjectHideFlags: 0
@@ -5218,7 +5246,7 @@ Transform:
   m_GameObject: {fileID: 866274930969091578}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.62, z: 2.02}
+  m_LocalPosition: {x: 0, y: 3.62, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10048,7 +10076,7 @@ Transform:
   m_GameObject: {fileID: 972287296517761812}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.1, y: 1.86, z: 4.74}
+  m_LocalPosition: {x: 0.1, y: 0.32, z: 4.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19852,7 +19880,7 @@ Transform:
   m_GameObject: {fileID: 1763629022641228819}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.84, y: -2.62, z: 2.02}
+  m_LocalPosition: {x: -0.84, y: -2.62, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45254,6 +45282,7 @@ GameObject:
   - component: {fileID: 1399333531627982573}
   - component: {fileID: 2682132853358343582}
   - component: {fileID: 7228563331668621021}
+  - component: {fileID: 4706453147354039326}
   - component: {fileID: 99523729773756265}
   - component: {fileID: 5519138053901206013}
   - component: {fileID: 3471286871416680594}
@@ -45392,6 +45421,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partDinamic: {fileID: 3915986206702111927}
   partIdle: {fileID: 2401692643553215334}
+--- !u!114 &4706453147354039326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254701966265616306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b64f6752180b1a49a0f718dfbbdfd1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbodies:
+  - {fileID: 6969844391281467115}
+  forceImpulse: 5
+  isStart: 0
 --- !u!195 &99523729773756265
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ namespace Input
         {
             healtExecutor.OnIsDead += IsDead;
         }
-        private void IsDead(int getHash, bool isDead)
+        private void IsDead(int getHash, bool isDead, Vector3 _directionDamage)
         {
             if (parentObject.Hash == getHash) { isStopClass = isDead; }
         }

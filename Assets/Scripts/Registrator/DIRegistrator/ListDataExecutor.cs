@@ -61,18 +61,18 @@ namespace Registrator
         }
         public Construction[] GetEnemys()
         {
-            if (enemyList == null)
+            if (allList != null)
             {
                 for (int i = 0; i < allList.Length; i++)
                 {
-                    if (allList[i].TypeObject is TypeObject.Player)
+                    if (allList[i].TypeObject is TypeObject.Enemy)
                     {
                         enemyList = masiv.Creat(allList[i], enemyList);
                     }
                 }
                 return enemyList;
             }
-            else { return enemyList; }
+            else {return null; }
         }
         public Construction GetCamera()
         {

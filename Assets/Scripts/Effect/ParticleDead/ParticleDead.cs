@@ -21,7 +21,7 @@ namespace Effect
         {
             healtExecutor.OnIsDead += IsDead;
         }
-        private void IsDead(int getHash, bool _isDead)
+        private void IsDead(int getHash, bool _isDead, Vector3 _directionDamage)
         {
             if (thisHash == getHash) { isDead = _isDead; }
         }
@@ -29,7 +29,6 @@ namespace Effect
         {
             SetClass();
         }
-
         private void SetClass()
         {
             if (!isRun)

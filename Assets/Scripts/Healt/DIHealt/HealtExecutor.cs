@@ -1,5 +1,6 @@
 using Registrator;
 using System;
+using UnityEngine;
 using Zenject;
 
 namespace Healt
@@ -7,17 +8,20 @@ namespace Healt
     public class HealtExecutor : IHealt
     {
         private Construction[] dataList;
-        private int costCount = 0;
 
-        public Action<int> OnStatisticScore { get { return onStatisticScore; } set { onStatisticScore = value; } }
-        private Action<int> onStatisticScore;
+        public Action<int, int> OnStatisticScore { get { return onStatisticScore; } set { onStatisticScore = value; } }
+        private Action<int, int> onStatisticScore;
         public Action<int, int> OnGetDamage { get { return onGetDamage; } set { onGetDamage = value; } }
         private Action<int, int> onGetDamage;
         public Action<int, int, int> OnStatisticHealt { get { return onStatisticHealt; } set { onStatisticHealt = value; } }
         private Action<int, int, int> onStatisticHealt;
-        public Action<int, bool> OnIsDead { get { return onIsDead; } set { onIsDead = value; } }
-        private Action<int, bool> onIsDead;
+        public Action<int, bool, Vector3> OnIsDead { get { return onIsDead; } set { onIsDead = value; } }
+        private Action<int, bool, Vector3> onIsDead;
+        public Action<int, bool> OnIsDeadAndDirection { get { return onIsDeadAndDirection; } set { onIsDeadAndDirection = value; } }
+        private Action<int, bool> onIsDeadAndDirection;
         //
+        private Vector3 directionDamage;
+
         private IListDataExecutor data;
         [Inject]
         public void Init(IListDataExecutor _data)
@@ -28,8 +32,9 @@ namespace Healt
         {
             onGetDamage?.Invoke(getHash, damage);
         }
-        public void SetDamage(int getHash, int damage)
+        public void SetDamage(int getHash, int damage, Vector3 _directionDamage)
         {
+            directionDamage= _directionDamage;
             if (dataList == null) { dataList = data.GetData(); }
             for (int i = 0; i < dataList.Length; i++)
             {
@@ -47,10 +52,9 @@ namespace Healt
         {
             onStatisticHealt?.Invoke(getHash, currentHealt, maxHealt);
         }
-        private void StatisticScore(int cost)
+        private void StatisticScore(int getHash, int cost)
         {
-            //costCount += cost;
-            onStatisticScore?.Invoke(costCount);
+            onStatisticScore?.Invoke(getHash, cost);
         }
         public void DeadObject(int getHash, int costObject)
         {
@@ -59,8 +63,8 @@ namespace Healt
                 if (dataList[i].Hash == getHash)
                 {
                     dataList[i].IsDead = true;
-                    onIsDead?.Invoke(getHash, true);
-                    StatisticScore(costObject);
+                    onIsDead?.Invoke(getHash, true, directionDamage);
+                    StatisticScore(getHash,costObject);
                 }
             }
         }
