@@ -43,7 +43,6 @@ namespace Healt
             {
                 if (healtCount > 0) { healtCount = healtCount - damage; healtExecutor.StatisticHealt(getHash, healtCount, maxHealt); }
                 if (healtCount <= 0) { healtExecutor.DeadObject(getHash, costObject); isStopRun = true; }
-                Debug.Log($"{gameObject.name} -> {healtCount}");
             }
         }
         public void Healing(int getHash, int healing)

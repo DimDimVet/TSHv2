@@ -24,7 +24,6 @@ namespace Healt
         {
             data = _data;
         }
-
         private void GetDamage(int getHash, int damage)
         {
             onGetDamage?.Invoke(getHash, damage);
@@ -44,14 +43,13 @@ namespace Healt
                 }
             }
         }
-
         public void StatisticHealt(int getHash, int currentHealt, int maxHealt)
         {
             onStatisticHealt?.Invoke(getHash, currentHealt, maxHealt);
         }
-        public void StatisticScore(int cost)
+        private void StatisticScore(int cost)
         {
-            costCount += cost;
+            //costCount += cost;
             onStatisticScore?.Invoke(costCount);
         }
         public void DeadObject(int getHash, int costObject)
