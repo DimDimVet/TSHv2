@@ -1,6 +1,5 @@
-using Healt;
+using AudioScene;
 using Input;
-using Registrator;
 using SceneSelector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,7 +10,7 @@ namespace UI
 {
     public class LogicButtonMenuLvl : MonoBehaviour
     {
-        //[SerializeField] private AudioSetting audioSetting;
+        [SerializeField] private AudioSetting audioSetting;
         [SerializeField] private SceneSetting sceneSetting;
 
         [Header(" нопка ћеню")]
@@ -27,8 +26,8 @@ namespace UI
         [SerializeField] private Button reBootButton;
         [Header(" нопка продолжить")]
         [SerializeField] private Button continButton;
-
-        private bool isTriggerEsc=false;
+        private AudioSource audioSource, audioSourceMuz;
+        private bool isTriggerEsc = false;
         private bool isStopClass = false, isRun = false;
 
         private IInputPlayerExecutor inputs;
@@ -37,10 +36,9 @@ namespace UI
         {
             inputs = _inputs;
         }
-
         private void OnEnable()
         {
-
+            inputs.OnEventUpdata += EventUpdata;
         }
         void Start()
         {
@@ -51,13 +49,14 @@ namespace UI
         {
             if (!isRun)
             {
-                if (menuButton!=null)
+                if (menuButton != null)
                 {
                     SetEventButton();
+                    SetAudio();
                     menuPanel.SetActive(false);
                     settPanel.SetActive(false);
 
-                    isRun = true; 
+                    isRun = true;
                 }
                 else { isRun = false; }
             }
@@ -70,26 +69,41 @@ namespace UI
             reBootButton.onClick.AddListener(ReBootGame);
             continButton.onClick.AddListener(ContinGame);
         }
+        private void SetAudio()
+        {
+            if (audioSetting != null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.clip = audioSetting.AudioClipButton;
+                audioSource.volume = (audioSetting.EfectVol);
+
+                audioSourceMuz = gameObject.AddComponent<AudioSource>();
+                audioSourceMuz.clip = audioSetting.AudioClipGnd;
+                audioSourceMuz.volume = (audioSetting.MuzVol);
+                audioSourceMuz.Play();
+            }
+        }
         void Update()
         {
             if (isStopClass) { return; }
             if (!isRun) { SetClass(); }
-            RunUpdate();
         }
-        private void RunUpdate()
+
+        private void EventUpdata(InputData inputData)
         {
-            if (inputs.Updata().Menu != 0) 
+            if (inputData.Menu != 0)
             {
-                if (!isTriggerEsc) { MenuGame(); isTriggerEsc = !isTriggerEsc; }
-                else { ContinGame(); isTriggerEsc = !isTriggerEsc; }
+                if (!isTriggerEsc){MenuGame();}
+                else{ ContinGame();}
             }
         }
         private void AudioClick()
         {
-            //audioSource.Play();
+            audioSource.Play();
         }
         private void MenuGame()
         {
+            if (!isTriggerEsc) { isTriggerEsc = !isTriggerEsc; }
             AudioClick();
             Time.timeScale = 0f;
             menuPanel.SetActive(true);
@@ -115,13 +129,13 @@ namespace UI
         }
         private void ContinGame()
         {
+            if (isTriggerEsc) { isTriggerEsc = !isTriggerEsc; }
             AudioClick();
             Time.timeScale = 1f;
             menuPanel.SetActive(false);
             sliderHealt.gameObject.SetActive(true);
             menuButton.gameObject.SetActive(true);
         }
-
     }
 }
 

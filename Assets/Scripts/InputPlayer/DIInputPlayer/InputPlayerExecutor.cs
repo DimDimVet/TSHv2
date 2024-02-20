@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,8 +14,13 @@ namespace Input
         private Mode[] modes = { Mode.Turn, Mode.AvtoRif };
         private int countMode = 0;
         private bool isTrigerClick = true;
+        private int i = 0;
         private InputData inputData;
         private InputActions inputActions;
+
+        public Action<InputData> OnEventUpdata { get { return onEventUpdata; } set { onEventUpdata = value; } }
+        private Action<InputData> onEventUpdata;
+
         public void Enable()
         {
             inputData = new InputData();
@@ -48,7 +54,7 @@ namespace Input
                     inputActions.KeyMap.Shoot.performed += context => { inputData.Shoot = context.ReadValue<float>(); };
                     inputActions.KeyMap.Shoot.canceled += context => { inputData.Shoot = context.ReadValue<float>(); };
 
-                    inputActions.KeyMap.Menu.started += context => { inputData.Menu = context.ReadValue<float>(); };
+                    inputActions.KeyMap.Menu.started += context => { inputData.Menu = context.ReadValue<float>(); EventUpdata(inputData); };
                     inputActions.KeyMap.Menu.performed += context => { inputData.Menu = context.ReadValue<float>(); };
                     inputActions.KeyMap.Menu.canceled += context => { inputData.Menu = context.ReadValue<float>(); };
 
@@ -94,6 +100,10 @@ namespace Input
         public InputData Updata()
         {
             return inputData;
+        }
+        private void EventUpdata(InputData inputData)
+        {
+            onEventUpdata?.Invoke(inputData);
         }
     }
 }

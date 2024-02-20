@@ -1,4 +1,5 @@
 using Unity.Mathematics;
+
 namespace Input
 {
     public struct InputData
