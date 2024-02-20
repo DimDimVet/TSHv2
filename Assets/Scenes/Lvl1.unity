@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 183190860}
   - component: {fileID: 183190864}
   - component: {fileID: 183190865}
+  - component: {fileID: 183190866}
   m_Layer: 5
   m_Name: LvlCanvas
   m_TagString: Untagged
@@ -829,6 +830,27 @@ MonoBehaviour:
   countEnemysText: {fileID: 1093195269}
   infoCountPlayerText: {fileID: 1601640958}
   timerAlfa: 1
+--- !u!114 &183190866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183190859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d59c5a21a26d2d4999f631ea0c94ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneSetting: {fileID: 11400000, guid: a0eda0cc6e0bebb4a8af0da0988d68df, type: 2}
+  menuButton: {fileID: 1782937752467695191}
+  menuPanel: {fileID: 1043160998}
+  sliderHealt: {fileID: 6690304540422636371}
+  settButton: {fileID: 1637272427}
+  settPanel: {fileID: 1994816947}
+  mainMenuButton: {fileID: 1113567072}
+  reBootButton: {fileID: 2028050472}
+  continButton: {fileID: 1294653196}
 --- !u!1 &248240904
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &316447300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3339,7 +3361,7 @@ GameObject:
   - component: {fileID: 1113567073}
   - component: {fileID: 1113567072}
   m_Layer: 5
-  m_Name: MenuButton
+  m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7810,12 +7832,12 @@ GameObject:
   - component: {fileID: 8710621463999256105}
   - component: {fileID: 1782937752467695191}
   m_Layer: 5
-  m_Name: PauseMenuButton
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8710621463999256105
 MonoBehaviour:
   m_ObjectHideFlags: 0

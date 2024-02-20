@@ -48,6 +48,10 @@ namespace Input
                     inputActions.KeyMap.Shoot.performed += context => { inputData.Shoot = context.ReadValue<float>(); };
                     inputActions.KeyMap.Shoot.canceled += context => { inputData.Shoot = context.ReadValue<float>(); };
 
+                    inputActions.KeyMap.Menu.started += context => { inputData.Menu = context.ReadValue<float>(); };
+                    inputActions.KeyMap.Menu.performed += context => { inputData.Menu = context.ReadValue<float>(); };
+                    inputActions.KeyMap.Menu.canceled += context => { inputData.Menu = context.ReadValue<float>(); };
+
                     inputActions.KeyMap.Mode.started += context => { inputData.Mode = context.ReadValue<float>(); SelectMoveMode(); };
                     inputActions.KeyMap.Mode.performed += context => { inputData.Mode = context.ReadValue<float>(); };
                     inputActions.KeyMap.Mode.canceled += context => { inputData.Mode = context.ReadValue<float>(); };

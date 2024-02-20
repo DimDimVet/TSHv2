@@ -11,6 +11,7 @@ namespace Input
         public float MouseRightButton;//мыш правая
         public float Shoot;
         public float Mode;
+        public float Menu;
         public Mode ModeAction;
         public Mode[] Modes;
     }

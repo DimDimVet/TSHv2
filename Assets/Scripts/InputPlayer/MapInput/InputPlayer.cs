@@ -91,6 +91,15 @@ namespace Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""101ad3bb-61ff-42ff-bae7-f9f19726a1ac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -245,6 +254,17 @@ namespace Input
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Mode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5031799c-c795-499d-b006-c282f4454527"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -484,6 +504,7 @@ namespace Input
             m_KeyMap_MouseLeftButton = m_KeyMap.FindAction("MouseLeftButton", throwIfNotFound: true);
             m_KeyMap_MouseMiddleButton = m_KeyMap.FindAction("MouseMiddleButton", throwIfNotFound: true);
             m_KeyMap_MouseRightButton = m_KeyMap.FindAction("MouseRightButton", throwIfNotFound: true);
+            m_KeyMap_Menu = m_KeyMap.FindAction("Menu", throwIfNotFound: true);
             // UIMap
             m_UIMap = asset.FindActionMap("UIMap", throwIfNotFound: true);
             m_UIMap_WASDUI = m_UIMap.FindAction("WASDUI", throwIfNotFound: true);
@@ -557,6 +578,7 @@ namespace Input
         private readonly InputAction m_KeyMap_MouseLeftButton;
         private readonly InputAction m_KeyMap_MouseMiddleButton;
         private readonly InputAction m_KeyMap_MouseRightButton;
+        private readonly InputAction m_KeyMap_Menu;
         public struct KeyMapActions
         {
             private @InputActions m_Wrapper;
@@ -568,6 +590,7 @@ namespace Input
             public InputAction @MouseLeftButton => m_Wrapper.m_KeyMap_MouseLeftButton;
             public InputAction @MouseMiddleButton => m_Wrapper.m_KeyMap_MouseMiddleButton;
             public InputAction @MouseRightButton => m_Wrapper.m_KeyMap_MouseRightButton;
+            public InputAction @Menu => m_Wrapper.m_KeyMap_Menu;
             public InputActionMap Get() { return m_Wrapper.m_KeyMap; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -598,6 +621,9 @@ namespace Input
                 @MouseRightButton.started += instance.OnMouseRightButton;
                 @MouseRightButton.performed += instance.OnMouseRightButton;
                 @MouseRightButton.canceled += instance.OnMouseRightButton;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
 
             private void UnregisterCallbacks(IKeyMapActions instance)
@@ -623,6 +649,9 @@ namespace Input
                 @MouseRightButton.started -= instance.OnMouseRightButton;
                 @MouseRightButton.performed -= instance.OnMouseRightButton;
                 @MouseRightButton.canceled -= instance.OnMouseRightButton;
+                @Menu.started -= instance.OnMenu;
+                @Menu.performed -= instance.OnMenu;
+                @Menu.canceled -= instance.OnMenu;
             }
 
             public void RemoveCallbacks(IKeyMapActions instance)
@@ -711,6 +740,7 @@ namespace Input
             void OnMouseLeftButton(InputAction.CallbackContext context);
             void OnMouseMiddleButton(InputAction.CallbackContext context);
             void OnMouseRightButton(InputAction.CallbackContext context);
+            void OnMenu(InputAction.CallbackContext context);
         }
         public interface IUIMapActions
         {
