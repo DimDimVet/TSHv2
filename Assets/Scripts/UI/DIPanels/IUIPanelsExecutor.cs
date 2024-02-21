@@ -1,4 +1,8 @@
-﻿namespace UI
+﻿using StatisticPlayer;
+using System;
+using System.Collections.Generic;
+
+namespace UI
 {
     public interface IUIPanelsExecutor
     {
@@ -6,6 +10,15 @@
         void CallGndPanel();
         void CallRezultPanel();
         void CallSettPanel();
-        void SetWinAudio(WinAudioSetting _winAudioSetting);
+        void Set(WinAudioSetting _winAudioSetting, PanelsLvl _panelsLvl);
+        Action<ActivPanel> OnStateUI { get; set; }
+        void ScreenSet();
+        List<string> TextScreen { get; }
+        int IndexCurrentScreen { get; }
+        void SetNewResolution(int indexDrop);
+        void AudioSet();
+        void SetNewAudio(WinAudioSetting _winAudioSetting);
+        Action<WinAudioSetting> OnParametrUI { get; set; }
+        Action<Statistic> OnStatisticUI { get; set; }
     }
 }
