@@ -58,7 +58,7 @@ namespace Input
                     inputActions.KeyMap.Menu.performed += context => { inputData.Menu = context.ReadValue<float>(); };
                     inputActions.KeyMap.Menu.canceled += context => { inputData.Menu = context.ReadValue<float>(); };
 
-                    inputActions.KeyMap.Mode.started += context => { inputData.Mode = context.ReadValue<float>(); SelectMoveMode(); };
+                    inputActions.KeyMap.Mode.started += context => { inputData.Mode = context.ReadValue<float>(); SelectMoveMode(); EventUpdata(inputData); };
                     inputActions.KeyMap.Mode.performed += context => { inputData.Mode = context.ReadValue<float>(); };
                     inputActions.KeyMap.Mode.canceled += context => { inputData.Mode = context.ReadValue<float>(); };
                 }
@@ -70,6 +70,7 @@ namespace Input
                 }
 
                 inputActions.Enable();
+                EventUpdata(inputData);
             }
         }
         public void OnDisable()

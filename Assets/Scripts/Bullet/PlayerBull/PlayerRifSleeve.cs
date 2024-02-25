@@ -1,4 +1,3 @@
-using AudioScene;
 using Pools;
 using Zenject;
 
@@ -8,14 +7,13 @@ namespace Bulls
     {
         private IPlayerRifSleevePoolExecutor playerBullPool;
         [Inject]
-        public void Init(IAudioShootExecutor _audioShoot, IPlayerRifSleevePoolExecutor _playerBullPool)
+        public void Init(IPlayerRifSleevePoolExecutor _playerBullPool)
         {
             playerBullPool = _playerBullPool;
         }
         protected override void ReternBullet()
         {
-            //particlePool.GetObject(playerBull.DirectionPlayer(), this.gameObject.transform);
-            
+
         }
         protected override void ShootSleeve()
         {

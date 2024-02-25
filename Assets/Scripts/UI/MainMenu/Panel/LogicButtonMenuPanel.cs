@@ -4,18 +4,16 @@ using Zenject;
 
 namespace UI
 {
-    public class LogicButtonPanel : MonoBehaviour
+    public class LogicButtonMenuPanel : MonoBehaviour
     {
+        [Header("Кнопка Игра")]
+        [SerializeField] private Button gameButton;
         [Header("Кнопка Настройка")]
         [SerializeField] private Button settButton;
-        [Header("Кнопка Меню")]
-        [SerializeField] private Button mainMenuButton;
-        [Header("Кнопка переиграть")]
-        [SerializeField] private Button reBootButton;
         [Header("Кнопка Результат")]
         [SerializeField] private Button rezultButton;
-        [Header("Кнопка продолжить")]
-        [SerializeField] private Button returnButton;
+        [Header("Кнопка Выход")]
+        [SerializeField] private Button exitButton;
 
         private bool isStopClass = false, isRun = false;
 
@@ -32,7 +30,7 @@ namespace UI
         }
         private void EscClick(ActivPanel _activPanel)
         {
-            if (_activPanel == ActivPanel.ButtonPanel) { GndPanel(); }
+            if (_activPanel == ActivPanel.ButtonPanel) { ExitPanel(); }
         }
         void Start()
         {
@@ -42,37 +40,32 @@ namespace UI
         {
             if (!isRun)
             {
-                if (panels != null) { isRun = true; SetEventButton(); }
+                if (panels != null) { isRun = true; SetEventButton();}
                 else { isRun = false; }
             }
         }
         private void SetEventButton()
         {
             settButton.onClick.AddListener(SettPanel);
-            mainMenuButton.onClick.AddListener(MainMenu);
-            reBootButton.onClick.AddListener(ReBootScene);
+            gameButton.onClick.AddListener(GameMenu);
             rezultButton.onClick.AddListener(RezultPanel);
-            returnButton.onClick.AddListener(GndPanel);
+            exitButton.onClick.AddListener(ExitPanel);
         }
         private void SettPanel()
         {
-            panels.CallSettPanel();
+            panels.CallSettPanel(true);
         }
-        private void MainMenu()
+        private void GameMenu()
         {
-            panels.MainMenu();
-        }
-        private void ReBootScene()
-        {
-            panels.ReBootScene();
+            panels.CallGameMenu();
         }
         private void RezultPanel()
         {
-            panels.CallRezultPanel();
+            panels.CallRezultPanel(true);
         }
-        private void GndPanel()
+        private void ExitPanel()
         {
-            panels.CallGndPanel();
+            panels.ExitGame();
         }
         void Update()
         {

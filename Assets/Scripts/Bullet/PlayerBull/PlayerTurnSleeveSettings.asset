@@ -17,4 +17,5 @@ MonoBehaviour:
   KillTime: 3
   DiametrColl: 0.1
   Damage: 10
+  SleeveVector: {x: 0, y: 0, z: -1}
   PercentDamage: 50

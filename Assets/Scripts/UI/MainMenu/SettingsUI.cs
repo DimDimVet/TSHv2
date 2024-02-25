@@ -3,33 +3,42 @@ using Zenject;
 
 namespace UI
 {
-    public class SettingsUILvl : MonoBehaviour
+    public class SettingsUI : MonoBehaviour
     {
+        [Header("MenuSceneIndex")]
+        [SerializeField] protected int menuSceneIndex = 0;
+        [Header("GameSceneIndex")]
+        [SerializeField] protected int gameSceneIndex = 1;
+        [Header("VictorySceneIndex")]
+        [SerializeField] protected int victorySceneIndex = 2;
+        [Header("OverSceneIndex")]
+        [SerializeField] protected int overSceneIndex = 3;
+
         [Header("Уровень музыки"), Range(0, 1)]
-        [SerializeField] private float muzVol = 0.5f;
+        [SerializeField] protected float muzVol = 0.5f;
         [Header("Уровень эффектов"), Range(0, 1)]
-        [SerializeField] private float efectVol = 0.5f;
+        [SerializeField] protected float efectVol = 0.5f;
         [Header("Звуковой файл - кнопка")]
-        [SerializeField] private AudioClip audioClipButton;
+        [SerializeField] protected AudioClip audioClipButton;
         [Header("Звуковой файл - фон")]
-        [SerializeField] private AudioClip audioClipGnd;
+        [SerializeField] protected AudioClip audioClipGnd;
 
         [Header("Мин ширина(width)")]
-        [SerializeField] private int minWidth = 1280;
+        [SerializeField] protected int minWidth = 1280;
         [Header("Мин высота(height)")]
-        [SerializeField] private int minHeight = 1024;
+        [SerializeField] protected int minHeight = 1024;
 
         [Header("Панели")]
-        [SerializeField] private GameObject gndPanel;
-        [SerializeField] private GameObject buttonPanel;
-        [SerializeField] private GameObject settPanel;
-        [SerializeField] private GameObject rezultPanel;
+        [SerializeField] protected GameObject gndPanel;
+        [SerializeField] protected GameObject buttonPanel;
+        [SerializeField] protected GameObject settPanel;
+        [SerializeField] protected GameObject rezultPanel;
 
-        private WinAudioSetting winAudioSetting;
-        private AudioSource audioSource, audioSourceMuz;
-        private bool isStopClass = false, isRun = false;
+        protected WinAudioSetting winAudioSetting;
+        protected AudioSource audioSource, audioSourceMuz;
+        protected bool isStopClass = false, isRun = false;
 
-        private IUIPanelsExecutor panels;
+        protected IUIPanelsExecutor panels;
         [Inject]
         public void Init(IUIPanelsExecutor _panels)
         {
@@ -38,6 +47,16 @@ namespace UI
         private void OnEnable()
         {
             panels.OnParametrUI += ParametrUI;
+            panels.OnAudioClick += AudioClick;
+            panels.OnAudioMuz += AudioMuz;
+        }
+        private void AudioClick(bool isClick)
+        {
+            if (audioSource != null && isClick) { audioSource.Play(); }
+        }
+        private void AudioMuz(bool isClick)
+        {
+            if (audioSourceMuz != null && isClick) { audioSourceMuz.Play(); }
         }
         private void ParametrUI(WinAudioSetting _winAudioSetting)
         {
@@ -55,8 +74,7 @@ namespace UI
         {
             SetClass();
         }
-
-        private void SetClass()
+        protected virtual void SetClass()
         {
             if (!isRun)
             {
@@ -79,7 +97,15 @@ namespace UI
                         SettPanel = settPanel,
                         RezultPanel = rezultPanel
                     };
-                    panels.Set(winAudioSetting, panelsLvl);
+
+                    SceneIndex sceneIndex = new SceneIndex()
+                    {
+                        MenuSceneIndex= menuSceneIndex,
+                        GameSceneIndex= gameSceneIndex,
+                        VictorySceneIndex= victorySceneIndex,
+                        OverSceneIndex= overSceneIndex
+                    };
+                    panels.Set(winAudioSetting, panelsLvl, sceneIndex);
                     panels.CallGndPanel();
                     isRun = true;
                     RunAudio();
@@ -87,7 +113,7 @@ namespace UI
                 else { isRun = false; }
             }
         }
-        private void RunAudio()
+        protected virtual void RunAudio()
         {
             panels.AudioSet();
 
@@ -98,14 +124,13 @@ namespace UI
             audioSourceMuz = gameObject.AddComponent<AudioSource>();
             audioSourceMuz.clip = winAudioSetting.AudioClipGnd;
             audioSourceMuz.volume = winAudioSetting.MuzVol;
-            audioSourceMuz.Play();
+            AudioMuz(true);
         }
         void Update()
         {
             if (isStopClass) { return; }
             if (!isRun) { SetClass(); }
         }
-
     }
 }
 

@@ -16,7 +16,8 @@ namespace Shoot
     {
         [SerializeField] private ShootSettings settings;
         private float currentTime, defaultTime, currentTimeClip, defaultTimeClip;
-        private bool isBullReLoad = false, isClipReLoad = false, isTrigerSleeve = true;
+        private bool isBullReLoad = false,isTrigerSleeve = true;
+        protected bool isClipReLoad = false;
         private ModeShoot modeShoot;
         private bool isAtackEnemy = false;
         private Mode mode;
@@ -57,8 +58,8 @@ namespace Shoot
         void Start()
         {
             SetClass();
+            SetUIParametr();
         }
-
         private void SetClass()
         {
             if (!isRun)
@@ -87,7 +88,9 @@ namespace Shoot
                 }
             }
         }
-
+        protected virtual void SetUIParametr()
+        {
+        }
         void Update()
         {
             if (isStopClass) { return; }
@@ -128,13 +131,19 @@ namespace Shoot
                 currentTimeClip -= Time.deltaTime;
                 if (currentTimeClip <= 0)
                 {
-                    currentTimeClip = defaultTimeClip; isClipReLoad = false; currentCountClip = maxCountClip;
+                    currentTimeClip = defaultTimeClip; isClipReLoad = false;
+                    currentCountClip = maxCountClip;
+                    IsClipReLoad(isClipReLoad);
                     return true;
                 }
                 isClipReLoad = true;
+                IsClipReLoad(isClipReLoad);
                 return false;
             }
             return true;
+        }
+        protected virtual void IsClipReLoad(bool isClipReLoad)
+        {
         }
         private bool ReLoadBullet()
         {

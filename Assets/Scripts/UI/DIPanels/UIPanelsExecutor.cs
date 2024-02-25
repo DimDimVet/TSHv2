@@ -1,10 +1,9 @@
-using AudioScene;
 using Input;
-using SceneSelector;
 using StatisticPlayer;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace UI
@@ -26,6 +25,19 @@ namespace UI
         public GameObject SettPanel;
         public GameObject RezultPanel;
     }
+    public struct SceneIndex
+    {
+        public int MenuSceneIndex;
+        public int GameSceneIndex;
+        public int VictorySceneIndex;
+        public int OverSceneIndex;
+    }
+    public struct Charging
+    {
+        public Mode Mode;
+        public int CurrentCountClip;
+        public bool IsClipReLoad;
+    }
     public enum ActivPanel
     {
         GndPanel, ButtonPanel, SettPanel, RezultPanel
@@ -36,11 +48,20 @@ namespace UI
         private Action<ActivPanel> onStateUI;
         public Action<WinAudioSetting> OnParametrUI { get { return onParametrUI; } set { onParametrUI = value; } }
         private Action<WinAudioSetting> onParametrUI;
+        public Action<bool> OnAudioClick { get { return onAudioClick; } set { onAudioClick = value; } }
+        private Action<bool> onAudioClick;
+        public Action<bool> OnAudioMuz { get { return onAudioMuz; } set { onAudioMuz = value; } }
+        private Action<bool> onAudioMuz;
         public Action<Statistic> OnStatisticUI { get { return onStatisticUI; } set { onStatisticUI = value; } }
         private Action<Statistic> onStatisticUI;
+        public Action<Mode> OnCurrentMode { get { return onCurrentMode; } set { onCurrentMode = value; } }
+        private Action<Mode> onCurrentMode;
+        public Action<Charging> OnChargingUpdate { get { return onChargingUpdate; } set { onChargingUpdate = value; } }
+        private Action<Charging> onChargingUpdate;
 
         private WinAudioSetting winAudioSetting;
         private PanelsLvl panelsLvl;
+        private SceneIndex sceneIndex;
         private ActivPanel activPanel;
 
         //Screen
@@ -52,6 +73,10 @@ namespace UI
         private Resolution[] resolutions, tempResolutions;
         //Statistic
         private Statistic currentStatistic;
+        //Charging
+        private Charging charging;
+        private Charging[] chargings;
+        private Mode currentMode;
 
         private IStatisticExecutor statistic;
         private IInputPlayerExecutor inputs;
@@ -61,14 +86,15 @@ namespace UI
             inputs = _inputs;
             statistic = _statistic;
         }
-
-        public void Set(WinAudioSetting _winAudioSetting, PanelsLvl _panelsLvl)
+        public void Set(WinAudioSetting _winAudioSetting, PanelsLvl _panelsLvl, SceneIndex _sceneIndex)
         {
             OnEnable();
             winAudioSetting = new WinAudioSetting();
             winAudioSetting = _winAudioSetting;
-            panelsLvl=new PanelsLvl();
+            panelsLvl = new PanelsLvl();
             panelsLvl = _panelsLvl;
+            sceneIndex = new SceneIndex();
+            sceneIndex = _sceneIndex;
         }
         private void OnEnable()
         {
@@ -77,11 +103,11 @@ namespace UI
         }
         private void UpdateStatistic(Statistic _statistic)
         {
-            currentStatistic= _statistic;
+            currentStatistic = _statistic;
         }
         private void EventUpdata(InputData inputData)
         {
-            if (inputData.Menu != 0){StateUI();}
+            if (inputData.Menu != 0) { StateUI(); }
         }
         private void StateUI()
         {
@@ -95,40 +121,77 @@ namespace UI
             panelsLvl.SettPanel.SetActive(false);
             panelsLvl.RezultPanel.SetActive(false);
             GameTimer(true);
+            AudioClick();
         }
-        public void CallButtonPanel()
+        public void CallButtonPanel(bool isGnd=false)
         {
             activPanel = ActivPanel.ButtonPanel;
-            panelsLvl.GndPanel.SetActive(false);
+            if (isGnd) { panelsLvl.GndPanel.SetActive(isGnd); }
+            else { panelsLvl.GndPanel.SetActive(isGnd); }
             panelsLvl.ButtonPanel.SetActive(true);
             panelsLvl.SettPanel.SetActive(false);
             panelsLvl.RezultPanel.SetActive(false);
             GameTimer(false);
+            AudioClick();
         }
-        public void CallSettPanel()
+        public void CallSettPanel(bool isGnd = false)
         {
             activPanel = ActivPanel.SettPanel;
-            panelsLvl.GndPanel.SetActive(false);
+            if (isGnd) { panelsLvl.GndPanel.SetActive(isGnd); }
+            else { panelsLvl.GndPanel.SetActive(isGnd); }
             panelsLvl.ButtonPanel.SetActive(false);
             panelsLvl.SettPanel.SetActive(true);
             panelsLvl.RezultPanel.SetActive(false);
             GameTimer(false);
+            AudioClick();
         }
-        public void CallRezultPanel()
+        public void CallRezultPanel(bool isGnd = false,bool isRezultPanel=false)
         {
             activPanel = ActivPanel.RezultPanel;
-            panelsLvl.GndPanel.SetActive(false);
-            panelsLvl.ButtonPanel.SetActive(false);
-            panelsLvl.SettPanel.SetActive(false);
+            if (isGnd) { panelsLvl.GndPanel.SetActive(isGnd); }
+            else { panelsLvl.GndPanel.SetActive(isGnd); }
+            if (isRezultPanel) { }
+            else 
+            {
+                panelsLvl.ButtonPanel.SetActive(isRezultPanel);
+                panelsLvl.SettPanel.SetActive(isRezultPanel);
+            }
             panelsLvl.RezultPanel.SetActive(true);
             GameTimer(false);
             GetCurrentStatistic();
+            AudioClick();
         }
         private void GameTimer(bool isRun)
         {
-            if (isRun){Time.timeScale = 1;}
-            else {Time.timeScale = 0;}
+            if (isRun) { Time.timeScale = 1; }
+            else { Time.timeScale = 0; }
         }
+
+        #region Scene
+        public void ReBootScene()
+        {
+            GameTimer(true);
+            AudioClick();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        public void MainMenu()
+        {
+            GameTimer(true);
+            AudioClick();
+            SceneManager.LoadScene(sceneIndex.MenuSceneIndex);
+        }
+        public void CallGameMenu()
+        {
+            GameTimer(true);
+            AudioClick();
+            SceneManager.LoadScene(sceneIndex.GameSceneIndex);
+        }
+        public void ExitGame()
+        {
+            AudioClick();
+            Application.Quit();
+        }
+        #endregion
 
         #region EPROM
         private void SetResolution(Resolution currentScreen)
@@ -230,12 +293,58 @@ namespace UI
             SetAudioParametr(_winAudioSetting.MuzVol, _winAudioSetting.EfectVol);
             AudioSet();
         }
+        public void AudioClick()
+        {
+            onAudioClick?.Invoke(true);
+        }
+        public void AudioMuz()
+        {
+            onAudioMuz?.Invoke(true);
+        }
         #endregion
 
         #region Statistic
         private void GetCurrentStatistic()
         {
             onStatisticUI?.Invoke(currentStatistic);
+        }
+        #endregion
+
+        #region ChargingParametr
+        public void ChargingSetParametr(Mode mode, int currentCountClip)
+        {
+            if (chargings == null)
+            {
+                charging = new Charging() { Mode = mode, CurrentCountClip = currentCountClip };
+                chargings = new Charging[] { charging };
+            }
+            else
+            {
+                charging = new Charging() { Mode = mode, CurrentCountClip = currentCountClip };
+                int newLength = chargings.Length + 1;
+                Array.Resize(ref chargings, newLength);
+                chargings[newLength - 1] = charging;
+            }
+
+        }
+        public Charging[] ChargingGetParametr()
+        {
+            return chargings;
+        }
+        public void CurrentMode(Mode _currentMode)
+        {
+            currentMode = _currentMode;
+            onCurrentMode?.Invoke(currentMode);
+        }
+        public void ChargingUpdate(Mode mode, bool isClipReLoad, int currentCountClip)
+        {
+            if (currentMode == mode)
+            {
+                charging.Mode = mode;
+                charging.CurrentCountClip = currentCountClip;
+                charging.IsClipReLoad = isClipReLoad;
+                onChargingUpdate?.Invoke(charging);
+            }
         }
         #endregion
     }

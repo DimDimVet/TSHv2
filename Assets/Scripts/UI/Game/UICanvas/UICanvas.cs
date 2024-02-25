@@ -56,13 +56,11 @@ namespace UI
                 else { isRun = false; }
             }
         }
-
         void Update()
         {
             if (isStopClass) { return; }
             if (!isRun) { SetClass(); }
         }
-
         private void LateUpdate()
         {
             InfoCountAlfa();

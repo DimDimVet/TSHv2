@@ -17,7 +17,6 @@ namespace Bulls
         public int Damage = 1;
         [Header("Процент критического дамага"), Range(0, 100)]
         public float PercentDamage = 50f;
-
     }
 }
 

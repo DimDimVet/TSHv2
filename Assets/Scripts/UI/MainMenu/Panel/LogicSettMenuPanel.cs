@@ -4,7 +4,7 @@ using Zenject;
 
 namespace UI
 {
-    public class LogicSettPanel : MonoBehaviour
+    public class LogicSettMenuPanel : MonoBehaviour
     {
         [Header("Dropdown разрешений")]
         [SerializeField] private Dropdown screenDropdown;
@@ -69,7 +69,7 @@ namespace UI
         }
         private void ButtonPanel()
         {
-            panels.CallButtonPanel();
+            panels.CallButtonPanel(true);
         }
         private void NewResolution(int indexDrop)
         {

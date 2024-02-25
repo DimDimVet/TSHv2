@@ -2,8 +2,6 @@ using Healt;
 using Registrator;
 using UnityEngine;
 using Zenject;
-using static Codice.Client.Common.Servers.RecentlyUsedServers;
-using static PlasticPipe.Server.MonitorStats;
 
 namespace Bulls
 {
@@ -26,9 +24,8 @@ namespace Bulls
         private float percentDamage;
         private float percent, currentDamag;
         private bool isBullKill = true, isShootTriger = true;
-        //protected bool isForwardPlus = true;
         private RaycastHit hit;
-        private float diametrColl,maxDistance;
+        private float diametrColl, maxDistance;
         private Construction[] data;
         private int tempHash;
         private int thisHash;
@@ -57,7 +54,7 @@ namespace Bulls
             damage = settings.Damage;
             diametrColl = settings.DiametrColl;
             maxDistance = diametrColl * 1.5f;
-            percentDamage=settings.PercentDamage;
+            percentDamage = settings.PercentDamage;
         }
         private void GetRun()
         {
@@ -90,7 +87,7 @@ namespace Bulls
             }
             else if (typeBullet == TypeBullet.Sleeve)
             {
-                if (isShootTriger) { rbThisObject.AddForce(Vector3.up * speedBullet, ForceMode.Impulse); }
+                if (isShootTriger) { rbThisObject.AddForce(transform.forward * speedBullet, ForceMode.Impulse); }
 
                 isShootTriger = false;
                 isBullKill = true;
@@ -119,9 +116,9 @@ namespace Bulls
             {
                 tempHash = hit.collider.gameObject.GetHashCode();
                 if (tempHash == thisHash) { return false; }
-                if (tempHash != 0) 
-                { 
-                    healtExecutor.SetDamage(tempHash, DamagRandom(), gameObject.transform.forward); 
+                if (tempHash != 0)
+                {
+                    healtExecutor.SetDamage(tempHash, DamagRandom(), gameObject.transform.forward);
                     return true;
                 }
             }
@@ -136,7 +133,7 @@ namespace Bulls
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(gameObject.transform.position, gameObject.transform.position+ gameObject.transform.forward);
+            Gizmos.DrawLine(gameObject.transform.position, gameObject.transform.position + gameObject.transform.forward);
             Gizmos.DrawWireSphere(gameObject.transform.position + gameObject.transform.forward, diametrColl);
         }
         protected virtual void ReternBullet()
