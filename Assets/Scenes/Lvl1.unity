@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -258,6 +258,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1754803229}
   - {fileID: 1023900561}
   - {fileID: 410087041}
   - {fileID: 832575519}
@@ -632,6 +633,7 @@ GameObject:
   - component: {fileID: 183190870}
   - component: {fileID: 183190871}
   - component: {fileID: 183190872}
+  - component: {fileID: 183190873}
   m_Layer: 5
   m_Name: LvlCanvas
   m_TagString: Untagged
@@ -857,6 +859,18 @@ MonoBehaviour:
   rezultOutDamag: {fileID: 753676180}
   rezultInDamag: {fileID: 1090753719}
   returnButton: {fileID: 5323435598756009933}
+--- !u!114 &183190873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183190859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b1e86513ab9ac40b5d09656c66843f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &237622801
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,7 +2128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &666117873
 Transform:
   m_ObjectHideFlags: 0
@@ -2300,7 +2314,7 @@ PrefabInstance:
     - target: {fileID: 6793239464067516258, guid: e0c0105a2a3e17940a80898e99466053,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7991585504143753074, guid: e0c0105a2a3e17940a80898e99466053,
         type: 3}
@@ -4290,7 +4304,7 @@ PrefabInstance:
     - target: {fileID: 3840951300864755300, guid: a873c30815a125d4fb3febd02ada1924,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3920652736167323231, guid: a873c30815a125d4fb3febd02ada1924,
         type: 3}
@@ -4723,7 +4737,7 @@ PrefabInstance:
     - target: {fileID: 3840951300864755300, guid: a873c30815a125d4fb3febd02ada1924,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3920652736167323231, guid: a873c30815a125d4fb3febd02ada1924,
         type: 3}
@@ -4982,6 +4996,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1754803229 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7141629203739276420, guid: 53bb470d3f738054e9446d0c9ea59082,
+    type: 3}
+  m_PrefabInstance: {fileID: 2808484036682833780}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1780626059
 GameObject:
   m_ObjectHideFlags: 0
@@ -5149,7 +5169,7 @@ PrefabInstance:
     - target: {fileID: 6793239464067516258, guid: e0c0105a2a3e17940a80898e99466053,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7991585504143753074, guid: e0c0105a2a3e17940a80898e99466053,
         type: 3}
@@ -5435,7 +5455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2023353577
 Transform:
   m_ObjectHideFlags: 0
@@ -6389,7 +6409,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 47463805}
     m_Modifications:
     - target: {fileID: 126041659334452973, guid: 53bb470d3f738054e9446d0c9ea59082,
         type: 3}
@@ -6455,6 +6475,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699225442156196869, guid: 53bb470d3f738054e9446d0c9ea59082,
+        type: 3}
+      propertyPath: positionDefaultCurX
+      value: 234
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699225442156196869, guid: 53bb470d3f738054e9446d0c9ea59082,
+        type: 3}
+      propertyPath: positionDefaultCurY
+      value: 234
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7805,7 +7835,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 47463805}
-  - {fileID: 2808484036682833780}
   - {fileID: 1735519629}
   - {fileID: 183190863}
   - {fileID: 1137076344}

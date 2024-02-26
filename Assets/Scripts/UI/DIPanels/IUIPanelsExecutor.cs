@@ -13,6 +13,8 @@ namespace UI
         void CallSettPanel(bool isGnd = false);
         void CallGameMenu();
         void ExitGame();
+        void CallOverScene();
+        void CallVictoryScene();
         void Set(WinAudioSetting _winAudioSetting, PanelsLvl _panelsLvl, SceneIndex _sceneIndex);
         Action<ActivPanel> OnStateUI { get; set; }
         void ScreenSet();
@@ -35,5 +37,7 @@ namespace UI
         Action<Mode> OnCurrentMode { get; set; }
         void ChargingUpdate(Mode mode, bool isClipReLoad, int currentCountClip);
         Action<Charging> OnChargingUpdate { get; set; }
+        void SelectCursor(bool isSelect);
+        Action<bool> OnSelectCursor { get; set; }
     }
 }

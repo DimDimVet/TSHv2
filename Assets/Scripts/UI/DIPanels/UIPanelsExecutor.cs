@@ -58,6 +58,8 @@ namespace UI
         private Action<Mode> onCurrentMode;
         public Action<Charging> OnChargingUpdate { get { return onChargingUpdate; } set { onChargingUpdate = value; } }
         private Action<Charging> onChargingUpdate;
+        public Action<bool> OnSelectCursor { get { return onSelectCursor; } set { onSelectCursor = value; } }
+        private Action<bool> onSelectCursor;
 
         private WinAudioSetting winAudioSetting;
         private PanelsLvl panelsLvl;
@@ -167,6 +169,13 @@ namespace UI
             else { Time.timeScale = 0; }
         }
 
+        #region Cursor
+        public void SelectCursor(bool isSelect)
+        {
+            onSelectCursor?.Invoke(isSelect);
+        }
+        #endregion
+
         #region Scene
         public void ReBootScene()
         {
@@ -185,6 +194,18 @@ namespace UI
             GameTimer(true);
             AudioClick();
             SceneManager.LoadScene(sceneIndex.GameSceneIndex);
+        }
+        public void CallVictoryScene()
+        {
+            GameTimer(false);
+            AudioClick();
+            SceneManager.LoadScene(sceneIndex.VictorySceneIndex);
+        }
+        public void CallOverScene()
+        {
+            GameTimer(false);
+            AudioClick();
+            SceneManager.LoadScene(sceneIndex.OverSceneIndex);
         }
         public void ExitGame()
         {

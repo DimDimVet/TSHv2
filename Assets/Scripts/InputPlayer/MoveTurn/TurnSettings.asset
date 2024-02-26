@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TurnSettings
   m_EditorClassIdentifier: 
   SpeedTurn: 1
-  MaxOffSetX: 0.007
+  MaxOffSetX: 0.01

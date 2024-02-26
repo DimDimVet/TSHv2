@@ -1,5 +1,6 @@
 using Healt;
 using Registrator;
+using UI;
 using UnityEngine;
 using Zenject;
 
@@ -21,12 +22,15 @@ namespace Input
 
         private bool isStopClass = false, isRun = false;
 
+        private IUIPanelsExecutor panels;
         private IHealt healtExecutor;
         private IListDataExecutor dataList;
         private IInputPlayerExecutor inputs;
         [Inject]
-        public void Init(IInputPlayerExecutor _inputs, IListDataExecutor _dataList, IHealt _healtExecutor)
+        public void Init(IInputPlayerExecutor _inputs, IListDataExecutor _dataList,
+                         IHealt _healtExecutor, IUIPanelsExecutor _panels)
         {
+            panels = _panels;
             inputs = _inputs;
             dataList = _dataList;
             healtExecutor = _healtExecutor;
@@ -80,7 +84,7 @@ namespace Input
                 {
                     if (TargetObjectEnemy(hitInfo))
                     {
-                        //SelectCursor(true);
+                        panels.SelectCursor(true);
                         targetDirection = hitInfo.point - gameObject.transform.position;
                         targetRotation = Quaternion.LookRotation(targetDirection);
                         Debug.DrawRay(gameObject.transform.position, targetDirection, Color.blue);
@@ -89,7 +93,7 @@ namespace Input
                     }
                     else
                     {
-                        //SelectCursor(false);
+                        panels.SelectCursor(false);
                         targetDirection = hitInfo.point - gameObject.transform.position;
                         targetRotation = Quaternion.LookRotation(targetDirection);
                         targetRotation.x = 0;

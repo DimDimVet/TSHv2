@@ -22,7 +22,6 @@ namespace EnemyLogic
         {
             SetClass();
         }
-
         private void SetClass()
         {
             if (!isRun)

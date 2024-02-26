@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041F\u0440\u043E\u0435\u043A\u0442 TSH"
+  m_Text: "\u041F\u0440\u043E\u0435\u043A\u0442 TSH v2"
 --- !u!1 &8490387193554902091
 GameObject:
   m_ObjectHideFlags: 0
