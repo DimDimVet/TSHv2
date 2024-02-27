@@ -1,7 +1,7 @@
 using Healt;
 using Registrator;
 using System;
-using System.Diagnostics;
+using UnityEngine;
 using Zenject;
 
 namespace StatisticPlayer
@@ -36,7 +36,7 @@ namespace StatisticPlayer
         public bool InitStatistic()
         {
             tempCount = data.GetEnemys();
-            if (tempCount==null) { return false; }
+            if (tempCount == null) { return false; }
 
             thisHash = data.GetPlayer().Hash;
             statistic = new Statistic
@@ -69,16 +69,38 @@ namespace StatisticPlayer
         {
             if (getHash == thisHash) { statistic.RezultOutDamag += damage; }
             if (getHash != thisHash)
-            { 
-                statistic.RezultInDamag += damage; 
+            {
+                statistic.RezultInDamag += damage;
                 statistic.CurrentInDamag = damage;
-                UpdateStatistic(statistic);
+                SetStatistic(statistic);
             }
-            
         }
         private void UpdateStatistic(Statistic statistic)
         {
             onUpdateStatistic?.Invoke(statistic);
+        }
+        public void SetStatistic(Statistic statistic)
+        {
+            PlayerPrefs.SetInt("ThisHash", statistic.ThisHash);
+            PlayerPrefs.SetInt("CountEnemy", statistic.CountEnemy);
+            PlayerPrefs.SetInt("KillEnemy", statistic.KillEnemy);
+            PlayerPrefs.SetInt("RezultCost", statistic.RezultCost);
+            PlayerPrefs.SetInt("RezultOutDamag", statistic.RezultOutDamag);
+            PlayerPrefs.SetInt("RezultInDamag", statistic.RezultInDamag);
+            PlayerPrefs.SetInt("CurrentInDamag", statistic.CurrentInDamag);
+            UpdateStatistic(statistic);
+        }
+        public Statistic GetStatistic()
+        {
+            Statistic statistic = new Statistic();
+            statistic.ThisHash= PlayerPrefs.GetInt("ThisHash");
+            statistic.CountEnemy = PlayerPrefs.GetInt("CountEnemy");
+            statistic.KillEnemy = PlayerPrefs.GetInt("KillEnemy");
+            statistic.RezultCost = PlayerPrefs.GetInt("RezultCost");
+            statistic.RezultOutDamag = PlayerPrefs.GetInt("RezultOutDamag");
+            statistic.RezultInDamag = PlayerPrefs.GetInt("RezultInDamag");
+            statistic.CurrentInDamag = PlayerPrefs.GetInt("CurrentInDamag");
+            return statistic;
         }
     }
 }

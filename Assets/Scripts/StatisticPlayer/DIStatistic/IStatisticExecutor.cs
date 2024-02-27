@@ -7,5 +7,7 @@ namespace StatisticPlayer
         Action<Statistic> OnUpdateStatistic { get; set; }
 
         bool InitStatistic();
+        void SetStatistic(Statistic statistic);
+        Statistic GetStatistic();
     }
 }

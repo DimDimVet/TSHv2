@@ -327,6 +327,7 @@ namespace UI
         #region Statistic
         private void GetCurrentStatistic()
         {
+            if (currentStatistic.ThisHash == 0) { currentStatistic = statistic.GetStatistic(); }
             onStatisticUI?.Invoke(currentStatistic);
         }
         #endregion
