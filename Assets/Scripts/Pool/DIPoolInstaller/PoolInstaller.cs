@@ -21,6 +21,8 @@ namespace Pools
             Container.Bind<IParticleShootEnemyTurnPoolExecutor>().To<ParticleShootEnemyTurnPoolExecutor>().AsSingle().NonLazy();
             Container.Bind<IParticleTurnShootPlayerPoolExecutor>().To<ParticleTurnShootPlayerPoolExecutor>().AsSingle().NonLazy();
 
+            Container.Bind<IHealtLootPoolExecutor>().To<HealtLootPoolExecutor>().AsSingle().NonLazy();
+
         }
     }
 }

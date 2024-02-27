@@ -1,3 +1,4 @@
+using Healts;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,7 +19,7 @@ namespace Registrator
         public TypeObject TypeObject { get; set; }
         public Camera CameraComponent;
         public NavMeshAgent NavMeshAgent;
-
+        public Healt Healt;
     }
 }
 

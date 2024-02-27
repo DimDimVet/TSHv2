@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealtCount: 10
   CostObject: 500
+  TypeBullets: 0100000002000000

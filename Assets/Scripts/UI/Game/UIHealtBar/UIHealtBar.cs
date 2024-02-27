@@ -1,4 +1,4 @@
-using Healt;
+using Healts;
 using Registrator;
 using UnityEngine;
 using UnityEngine.UI;

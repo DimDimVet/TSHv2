@@ -1,4 +1,4 @@
-using Healt;
+using Healts;
 using Input;
 using Registrator;
 using UnityEngine;
@@ -85,7 +85,7 @@ namespace EnemyLogic
             targetDirection = target.position - parentTurnObject.transform.position;
             targetRotation = Quaternion.LookRotation(targetDirection);
             if (targetRotation.x > maxOffSetX) { targetRotation.x = maxOffSetX; }
-            targetRotation.z = 0;
+
             parentTurnObject.transform.rotation =
                 Quaternion.Lerp(parentTurnObject.transform.rotation, targetRotation, Time.deltaTime * speedTurn);
         }

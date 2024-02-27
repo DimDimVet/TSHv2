@@ -1,4 +1,4 @@
-using Healt;
+using Healts;
 using Registrator;
 using UnityEngine;
 using Zenject;
@@ -39,7 +39,6 @@ namespace Bulls
             dataList = _dataList;
             healtExecutor = _healtExecutor;
         }
-
         void Start()
         {
             SetSettings();
@@ -118,7 +117,7 @@ namespace Bulls
                 if (tempHash == thisHash) { return false; }
                 if (tempHash != 0)
                 {
-                    healtExecutor.SetDamage(tempHash, DamagRandom(), gameObject.transform.forward);
+                    healtExecutor.SetDamage(tempHash, DamagRandom(), gameObject.transform.forward, typeBullet);
                     return true;
                 }
             }

@@ -15,4 +15,4 @@ MonoBehaviour:
   SpeedMove: 10
   Acceleration: 10
   SpeedAngle: 120
-  StopDistance: 15
+  StopDistance: 30

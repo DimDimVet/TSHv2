@@ -14,7 +14,6 @@ namespace Input
         private Mode[] modes = { Mode.Turn, Mode.AvtoRif };
         private int countMode = 0;
         private bool isTrigerClick = true;
-        private int i = 0;
         private InputData inputData;
         private InputActions inputActions;
 

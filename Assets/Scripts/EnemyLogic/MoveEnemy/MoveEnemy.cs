@@ -1,4 +1,4 @@
-using Healt;
+using Healts;
 using Registrator;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,8 +14,8 @@ namespace EnemyLogic
         private Transform currentPosition;
         private Vector3 defaultPositions;
         private float speedMove, speedAngle, acceleration, stopDistance;
-        private int countTarget = 0, countTargetDefault = 0;
-        private Vector3 currentTarget;
+        //private int countTarget1 = 0, countTargetDefault1 = 0;
+        //private Vector3 currentTarget1;
         private bool isTriger = true;
         private bool isStopClass = false, isRun = false;
 

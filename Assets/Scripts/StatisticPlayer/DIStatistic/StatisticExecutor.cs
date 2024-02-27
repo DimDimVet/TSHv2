@@ -1,4 +1,5 @@
-using Healt;
+using Bulls;
+using Healts;
 using Registrator;
 using System;
 using UnityEngine;
@@ -65,7 +66,7 @@ namespace StatisticPlayer
                 statistic.KillEnemy++;
             }
         }
-        private void GetDamage(int getHash, int damage)
+        private void GetDamage(int getHash, int damage, TypeBullet typeBullet)
         {
             if (getHash == thisHash) { statistic.RezultOutDamag += damage; }
             if (getHash != thisHash)

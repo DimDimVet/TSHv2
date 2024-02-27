@@ -35,7 +35,7 @@ namespace UI
         private ElementGrid element;
         private List<ElementGrid> elements;
         private Vector2 mode—harging, modeGun, modeRif;
-        private bool isStopElementGun = false, isStopElementRif = false;
+        //private bool isStopElementGun = false, isStopElementRif = false;
         private Mode currentMode;
 
         private bool isStopClass = false, isRun = false;

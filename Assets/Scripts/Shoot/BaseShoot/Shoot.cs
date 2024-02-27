@@ -1,5 +1,5 @@
 using EnemyLogic;
-using Healt;
+using Healts;
 using Input;
 using Registrator;
 using UnityEngine;

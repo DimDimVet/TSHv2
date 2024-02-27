@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace Healt
+namespace Healts
 {
     public class HealtInstaller : MonoInstaller
     {

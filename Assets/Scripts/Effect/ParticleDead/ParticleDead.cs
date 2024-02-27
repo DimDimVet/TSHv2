@@ -1,4 +1,4 @@
-using Healt;
+using Healts;
 using UnityEngine;
 using Zenject;
 

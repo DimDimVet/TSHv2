@@ -35,10 +35,10 @@ namespace UI
 
         private void StatisticUI(Statistic _statistic)
         {
-            killEnemy.text = $"{_statistic.KillEnemy}";
-            rezultCost.text = $"{_statistic.RezultCost}";
-            rezultOutDamag.text = $"{_statistic.RezultOutDamag}";
-            rezultInDamag.text = $"{_statistic.RezultInDamag}";
+            killEnemy.text = $"Уничтожено врагов: {_statistic.KillEnemy}";
+            rezultCost.text = $"Количество очков: {_statistic.RezultCost}";
+            rezultOutDamag.text = $"Получено урона: {_statistic.RezultOutDamag}";
+            rezultInDamag.text = $"Нанесено урона: {_statistic.RezultInDamag}";
         }
 
         private void EscClick(ActivPanel _activPanel)

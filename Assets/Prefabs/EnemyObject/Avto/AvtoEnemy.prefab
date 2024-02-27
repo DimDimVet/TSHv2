@@ -266,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 1038169575448670940}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.19, z: -2.94}
+  m_LocalPosition: {x: 0, y: 7, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10074,6 +10074,7 @@ GameObject:
   - component: {fileID: 8302913196263966783}
   - component: {fileID: 4809864527855769812}
   - component: {fileID: 8182890204264706759}
+  - component: {fileID: 7258868649494198423}
   m_Layer: 0
   m_Name: AvtoEnemy
   m_TagString: Untagged
@@ -10262,6 +10263,7 @@ MonoBehaviour:
   - {fileID: 4912094192218964607}
   - {fileID: 1414383009816034156}
   forceImpulse: 50
+  isStart: 0
 --- !u!114 &8566800847825917002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10370,6 +10372,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsHealt: {fileID: 11400000, guid: 720cee85eb71cd740afbcc5353a496d4, type: 2}
+--- !u!114 &7258868649494198423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968821607049334371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f26caf049e5d245828588720d768dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ContainerHealtLoot: {fileID: 1030522519214047377}
 --- !u!1 &4454414314092951442
 GameObject:
   m_ObjectHideFlags: 0

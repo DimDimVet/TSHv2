@@ -1,4 +1,5 @@
 using CameraMain;
+using Healts;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -35,6 +36,7 @@ namespace Registrator
                 CameraComponent = GetComponent<Camera>(),
                 Transform = gameObject.transform,
                 NavMeshAgent = GetComponent<NavMeshAgent>(),
+                Healt=GetComponent<Healt>()
             };
             dataList.SetData(registrator);
         }

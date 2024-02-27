@@ -1,6 +1,4 @@
-using Bulls;
-using System.Collections;
-using System.Collections.Generic;
+using Loot;
 using UnityEngine;
 using Zenject;
 
@@ -10,10 +8,10 @@ namespace Pools
     {
         private Pool pool;
         [Inject]
-        private PlayerTurnSleeve.Factory bullFactory;
+        private HealtLoot.Factory healtLootFactory;
         private void AddPull(Transform containerTransform)
         {
-            Bull rezult = bullFactory.Create();
+            HealtLoot rezult = healtLootFactory.Create();
             pool = new Pool(rezult.gameObject, containerTransform, true);
         }
 
@@ -25,7 +23,7 @@ namespace Pools
             if (tempGameObject != null) { return tempGameObject; }
             else
             {
-                Bull rezult = bullFactory.Create();
+                HealtLoot rezult = healtLootFactory.Create();
                 pool.NewObjectQueue(rezult.gameObject);
                 return pool.GetObjectFabric(containerTransform);
             }
