@@ -9,13 +9,13 @@ namespace EnemyLogic
     public class MoveEnemy : MonoBehaviour
     {
         [SerializeField] private MoveEnemySettings settings;
+        [SerializeField] private Transform[] defaultTargets;
+        private Vector3 defaultPositions;
+        private int countTarget = 0;
         private int thisHash;
         private Construction thisObject;
         private Transform currentPosition;
-        private Vector3 defaultPositions;
         private float speedMove, speedAngle, acceleration, stopDistance;
-        //private int countTarget1 = 0, countTargetDefault1 = 0;
-        //private Vector3 currentTarget1;
         private bool isTriger = true;
         private bool isStopClass = false, isRun = false;
 
@@ -59,7 +59,12 @@ namespace EnemyLogic
         {
             thisHash = this.gameObject.GetHashCode();
             thisObject = dataList.GetObjectHash(thisHash);
-            defaultPositions = gameObject.transform.position;
+
+            if (defaultTargets == null)
+            {
+                defaultTargets = new Transform[] { gameObject.transform }; defaultPositions = defaultTargets[0].position;
+            }
+            else { defaultPositions = defaultTargets[0].position; }
 
             if (!isRun)
             {
@@ -99,9 +104,12 @@ namespace EnemyLogic
             {
                 if (isTriger)
                 {
-                    //StepTarget();
                     if (currentPosition != null) { EnemyMove(currentPosition.position); }
-                    else { EnemyMove(defaultPositions); }
+                    else
+                    {
+                        DefaultPositionStep();
+                        EnemyMove(defaultPositions);
+                    }
 
                     isTriger = false;
                 }
@@ -109,6 +117,15 @@ namespace EnemyLogic
                 {
                     if (thisObject.NavMeshAgent.velocity.magnitude <= 0.1f) { isTriger = true; }
                 }
+            }
+        }
+        private void DefaultPositionStep()
+        {
+            float rezultMagnitude = Mathf.Abs(defaultPositions.magnitude- gameObject.transform.position.magnitude);
+            if (rezultMagnitude*0.9f <= stopDistance) 
+            {
+                if (countTarget >= defaultTargets.Length) { countTarget = 0; }
+                else { defaultPositions = defaultTargets[countTarget].position; countTarget++; }
             }
         }
         private void EnemyMove(Vector3 _currentTarget)
