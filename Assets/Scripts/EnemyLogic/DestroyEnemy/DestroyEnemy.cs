@@ -6,11 +6,11 @@ namespace Destroy
 {
     public class DestroyEnemy : MonoBehaviour
     {
-
+        [SerializeField] private GameObject[] objectSwitchable;
         [SerializeField] private Rigidbody[] rigidbodies;
         [SerializeField, Range(1, 100)] private float forceImpulse = 50f;
         private Vector3 directionDamage;
-        public bool isStart = false;
+        private bool isStart = false;
         private int thisHash;
         private bool isStopClass = false, isRun = false;
 
@@ -64,6 +64,7 @@ namespace Destroy
         {
             if (isStart)
             {
+                OffObject();
                 for (int i = 0; i < rigidbodies.Length; i++)
                 {
                     rigidbodies[i].isKinematic = false;
@@ -71,6 +72,16 @@ namespace Destroy
                     rigidbodies[i].AddForce(directionDamage * forceImpulse / 2, ForceMode.Impulse);
                 }
                 isStart = !isStart;
+            }
+        }
+        private void OffObject()
+        {
+            if (objectSwitchable != null)
+            {
+                for (int y = 0; y < objectSwitchable.Length; y++)
+                {
+                    objectSwitchable[y].SetActive(false);
+                }
             }
         }
     }

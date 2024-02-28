@@ -10259,11 +10259,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b64f6752180b1a49a0f718dfbbdfd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectSwitchable:
+  - {fileID: 1962199675633272304}
   rigidbodies:
   - {fileID: 4912094192218964607}
   - {fileID: 1414383009816034156}
   forceImpulse: 50
-  isStart: 0
 --- !u!114 &8566800847825917002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25497,6 +25498,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 023adf9c5618f9846bbc29eb730750ba, type: 3}
+--- !u!1 &1962199675633272304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5315060309022885586, guid: 023adf9c5618f9846bbc29eb730750ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 5979022210677097250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5382309633042389512 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1749665074864445738, guid: 023adf9c5618f9846bbc29eb730750ba,

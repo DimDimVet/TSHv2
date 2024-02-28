@@ -10,7 +10,7 @@ namespace Healts
         private int healtCount, maxHealt, costObject;
         private int thisHash;
         private TypeBullet[] typeBullets;
-        private bool /*isRun = false,*/ isStopRun = false;
+        private bool isStopRun = false;
 
         private IHealt healtExecutor;
         [Inject]

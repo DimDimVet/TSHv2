@@ -45433,10 +45433,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b64f6752180b1a49a0f718dfbbdfd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectSwitchable:
+  - {fileID: 8084103863964304630}
   rigidbodies:
   - {fileID: 6969844391281467115}
   forceImpulse: 5
-  isStart: 0
 --- !u!195 &99523729773756265
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -45874,6 +45875,12 @@ PrefabInstance:
 --- !u!224 &2430375410988555022 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1749665074864445738, guid: 023adf9c5618f9846bbc29eb730750ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 4175508187184808484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8084103863964304630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5315060309022885586, guid: 023adf9c5618f9846bbc29eb730750ba,
     type: 3}
   m_PrefabInstance: {fileID: 4175508187184808484}
   m_PrefabAsset: {fileID: 0}
