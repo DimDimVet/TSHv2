@@ -48,7 +48,7 @@ namespace EnemyLogic
             if (thisHash == getHash)
             {
                 isStopClass = isDead;
-                //thisObject.NavMeshAgent.enabled = false;
+                thisObject.NavMeshAgent.enabled = false;
             }
         }
         void Start()
@@ -132,7 +132,6 @@ namespace EnemyLogic
         {
             thisObject.NavMeshAgent.SetDestination(_currentTarget);
         }
-
     }
 }
 

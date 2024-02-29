@@ -46,17 +46,19 @@ namespace UI
         }
         private void OnEnable()
         {
+            SetClass();
             panels.OnParametrUI += ParametrUI;
             panels.OnAudioClick += AudioClick;
             panels.OnAudioMuz += AudioMuz;
+            
         }
         private void AudioClick(bool isClick)
         {
             if (audioSource != null && isClick) { audioSource.Play(); }
         }
-        private void AudioMuz(bool isClick)
+        private void AudioMuz(bool isStart)
         {
-            if (audioSourceMuz != null && isClick) { audioSourceMuz.Play(); }
+            if (audioSourceMuz != null && isStart) { audioSourceMuz.Play(); }
         }
         private void ParametrUI(WinAudioSetting _winAudioSetting)
         {
@@ -70,17 +72,17 @@ namespace UI
                 audioSourceMuz.volume = winAudioSetting.MuzVol;
             }
         }
-        void Awake()
-        {
-            SetClass();
-        }
+        //void Awake()
+        //{
+        //    SetClass();
+        //}
         protected virtual void SetClass()
         {
             if (!isRun)
             {
                 if (panels != null)
                 {
-                    WinAudioSetting winAudioSetting = new WinAudioSetting()
+                    winAudioSetting = new WinAudioSetting()
                     {
                         MuzVol = muzVol,
                         EfectVol = efectVol,

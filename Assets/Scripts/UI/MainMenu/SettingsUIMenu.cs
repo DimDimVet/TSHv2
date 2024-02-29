@@ -15,6 +15,7 @@ namespace UI
             audioSourceMuz = gameObject.AddComponent<AudioSource>();
             audioSourceMuz.clip = winAudioSetting.AudioClipGnd;
             audioSourceMuz.volume = winAudioSetting.MuzVol;
+            audioSourceMuz.loop = true;
         }
     }
 }

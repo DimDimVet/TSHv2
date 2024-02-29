@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootSettings: {fileID: 11400000, guid: 557ae8c4011eded4a81d54d4b28b4755, type: 2}
+  forceImpulse: 2
 --- !u!54 &3512189620592074338
 Rigidbody:
   m_ObjectHideFlags: 0

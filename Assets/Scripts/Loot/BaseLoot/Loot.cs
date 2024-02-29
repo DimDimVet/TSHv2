@@ -10,6 +10,8 @@ namespace Loot
         private int tempHash, thisHash;
         protected int healt;
         private Construction[] data;
+        private Rigidbody rbThisObject;
+        [SerializeField, Range(1, 100)] private float forceImpulse = 50f;
         private bool isRun = false, isStopRun = false;
 
         private IListDataExecutor dataList;
@@ -31,6 +33,10 @@ namespace Loot
         {
             if (!isRun)
             {
+                rbThisObject = GetComponent<Rigidbody>();
+                if (!(rbThisObject is Rigidbody)) { gameObject.AddComponent<Rigidbody>(); }
+                rbThisObject.AddForce(Vector3.up * forceImpulse, ForceMode.Impulse);
+
                 data = dataList.GetData();
                 if (data != null) { isRun = true; return; }
                 isRun = false;
