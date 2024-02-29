@@ -20,16 +20,10 @@ namespace Effect
         {
             inputs = _inputs;
         }
-        private void OnEnable()
-        {
-            //isDead = false;
-            //OnIsDead += StopRun;
-        }
         void Start()
         {
             SetClass();
         }
-
         private void SetClass()
         {
             if (!isRun)
@@ -41,7 +35,6 @@ namespace Effect
                 else { isRun = false; }
             }
         }
-
         void Update()
         {
             if (isStopClass) { return; }

@@ -28,7 +28,6 @@ public class SetCameraPoint : MonoBehaviour
     {
         SetClass();
     }
-
     private void SetClass()
     {
         thisHash = gameObject.GetHashCode();
@@ -53,7 +52,6 @@ public class SetCameraPoint : MonoBehaviour
         }
         else { isRun = false; }
     }
-
     void Update()
     {
         if (isStopClass) { return; }

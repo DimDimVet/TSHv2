@@ -10291,6 +10291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 30fb644b48378bb4395f9c286578eef1, type: 2}
+  defaultTargets: []
 --- !u!114 &9030178185754701457
 MonoBehaviour:
   m_ObjectHideFlags: 0

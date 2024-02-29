@@ -16,13 +16,11 @@ namespace Effect
         private bool isStopClass = false, isRun = false;
 
         private IHealt healtExecutor;
-        private IListDataExecutor dataList;
         private IInputPlayerExecutor inputs;
         [Inject]
         public void Init(IInputPlayerExecutor _inputs, IListDataExecutor _dataList, IHealt _healtExecutor)
         {
             inputs = _inputs;
-            dataList = _dataList;
             healtExecutor = _healtExecutor;
         }
         private void OnEnable()

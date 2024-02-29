@@ -129,12 +129,6 @@ namespace Bulls
             currentDamag = Random.value * damage * percent;
             return (int)currentDamag;
         }
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(gameObject.transform.position, gameObject.transform.position + gameObject.transform.forward);
-            Gizmos.DrawWireSphere(gameObject.transform.position + gameObject.transform.forward, diametrColl);
-        }
         protected virtual void ReternBullet()
         {
         }

@@ -21,11 +21,6 @@ namespace Effect
         {
             dataList = _dataList;
         }
-        private void OnEnable()
-        {
-            //isDead = false;
-            //OnIsDead += StopRun;
-        }
         void Start()
         {
             SetClass();

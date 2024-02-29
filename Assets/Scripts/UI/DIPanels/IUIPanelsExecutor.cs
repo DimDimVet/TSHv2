@@ -2,6 +2,7 @@
 using StatisticPlayer;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace UI
 {
@@ -17,7 +18,8 @@ namespace UI
         void CallVictoryScene();
         void Set(WinAudioSetting _winAudioSetting, PanelsLvl _panelsLvl, SceneIndex _sceneIndex);
         Action<ActivPanel> OnStateUI { get; set; }
-        void ScreenSet();
+        void ScreenSet(Resolution[] _resolutions);
+        Action<Resolution> OnSetResolution { get; set; }
         List<string> TextScreen { get; }
         int IndexCurrentScreen { get; }
         void SetNewResolution(int indexDrop);

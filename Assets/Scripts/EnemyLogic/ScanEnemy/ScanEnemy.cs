@@ -48,11 +48,7 @@ namespace EnemyLogic
             scanEnemy.FindPlayer(hitColl, thisHash);
 
         }
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(this.gameObject.transform.position, diametrCollider);
-        }
+
     }
 }
 

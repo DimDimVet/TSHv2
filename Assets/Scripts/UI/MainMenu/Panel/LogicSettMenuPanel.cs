@@ -28,6 +28,11 @@ namespace UI
         {
             panels.OnStateUI += EscClick;
             panels.OnParametrUI += ParametrUI;
+            panels.OnSetResolution += SetResolution;
+        }
+        private void SetResolution(Resolution resolution)
+        {
+            Screen.SetResolution(resolution.width, resolution.height, true);
         }
         private void EscClick(ActivPanel _activPanel)
         {
@@ -47,7 +52,7 @@ namespace UI
             {
                 if (panels != null)
                 {
-                    panels.ScreenSet();
+                    panels.ScreenSet(Screen.resolutions);
                     screenDropdown.ClearOptions();
                     screenDropdown.AddOptions(panels.TextScreen);
                     screenDropdown.value = panels.IndexCurrentScreen;

@@ -1,4 +1,3 @@
-using EnemyLogic;
 using Healts;
 using Registrator;
 using UI;

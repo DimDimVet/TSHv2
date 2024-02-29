@@ -40,7 +40,7 @@ namespace Destroy
                 {
                     for (int i = 0; i < rigidbodies.Length; i++)
                     {
-                        rigidbodies[i].isKinematic = true;
+                        //rigidbodies[i].isKinematic = true;
                     }
 
                     thisHash = gameObject.GetInstanceID();
@@ -67,9 +67,10 @@ namespace Destroy
                 OffObject();
                 for (int i = 0; i < rigidbodies.Length; i++)
                 {
-                    rigidbodies[i].isKinematic = false;
-                    rigidbodies[i].AddForce(Vector3.up * forceImpulse, ForceMode.Impulse);
-                    rigidbodies[i].AddForce(directionDamage * forceImpulse / 2, ForceMode.Impulse);
+                    //rigidbodies[i].isKinematic = false;
+                    rigidbodies[i].velocity = Vector3.up * forceImpulse;
+                    //rigidbodies[i].AddForce(Vector3.up * forceImpulse, ForceMode.Impulse);
+                    //rigidbodies[i].AddForce(directionDamage * forceImpulse / 2, ForceMode.Impulse);
                 }
                 isStart = !isStart;
             }

@@ -40,7 +40,6 @@ namespace Effect
                 else { isRun = false; }
             }
         }
-
         void Update()
         {
             if (isStopClass) { return; }

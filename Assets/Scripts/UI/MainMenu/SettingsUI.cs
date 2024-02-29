@@ -70,7 +70,7 @@ namespace UI
                 audioSourceMuz.volume = winAudioSetting.MuzVol;
             }
         }
-        void Start()
+        void Awake()
         {
             SetClass();
         }

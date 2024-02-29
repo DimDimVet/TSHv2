@@ -28,7 +28,6 @@ namespace CameraMain
         {
             SetClass();
         }
-
         private void SetClass()
         {
             if (!isRun)

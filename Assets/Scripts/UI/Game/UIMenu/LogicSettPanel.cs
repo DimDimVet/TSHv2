@@ -47,7 +47,7 @@ namespace UI
             {
                 if (panels != null)
                 {
-                    panels.ScreenSet();
+                    panels.ScreenSet(Screen.resolutions);
                     screenDropdown.ClearOptions();
                     screenDropdown.AddOptions(panels.TextScreen);
                     screenDropdown.value = panels.IndexCurrentScreen;

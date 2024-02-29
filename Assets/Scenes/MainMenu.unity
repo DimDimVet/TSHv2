@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731703, g: 0.13414727, b: 0.121078506, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2041,8 +2041,8 @@ MonoBehaviour:
   efectVol: 0.5
   audioClipButton: {fileID: 8300000, guid: 305c552350fe52a43b7fb3dec2113574, type: 3}
   audioClipGnd: {fileID: 8300000, guid: ad6c02d922d7e144396a322cf4d70b55, type: 3}
-  minWidth: 1280
-  minHeight: 1024
+  minWidth: 1920
+  minHeight: 1080
   gndPanel: {fileID: 2052275737522680428}
   buttonPanel: {fileID: 7099490723015945190}
   settPanel: {fileID: 2089128667}

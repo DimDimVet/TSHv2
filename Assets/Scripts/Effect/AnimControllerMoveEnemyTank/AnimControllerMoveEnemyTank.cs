@@ -1,4 +1,3 @@
-using Input;
 using Registrator;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,11 +22,6 @@ namespace Effect
         public void Init(IListDataExecutor _dataList)
         {
             dataList = _dataList;
-        }
-        private void OnEnable()
-        {
-            //isDead = false;
-            //OnIsDead += StopRun;
         }
         void Start()
         {

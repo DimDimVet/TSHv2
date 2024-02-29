@@ -1,4 +1,3 @@
-using AudioScene;
 using Pools;
 using Zenject;
 
@@ -9,7 +8,7 @@ namespace Bulls
         private IEnemyTurnPoolExecutor enemyBullPool;
         private IParticleShootEnemyTurnPoolExecutor particle;
         [Inject]
-        public void Init(IAudioShootExecutor _audioShoot, IEnemyTurnPoolExecutor _enemyBullPool, IParticleShootEnemyTurnPoolExecutor _particle)
+        public void Init(IEnemyTurnPoolExecutor _enemyBullPool, IParticleShootEnemyTurnPoolExecutor _particle)
         {
             enemyBullPool = _enemyBullPool;
             particle = _particle;

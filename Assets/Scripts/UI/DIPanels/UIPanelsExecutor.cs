@@ -58,6 +58,8 @@ namespace UI
         private Action<Mode> onCurrentMode;
         public Action<Charging> OnChargingUpdate { get { return onChargingUpdate; } set { onChargingUpdate = value; } }
         private Action<Charging> onChargingUpdate;
+        public Action<Resolution> OnSetResolution { get { return onSetResolution; } set { onSetResolution = value; } }
+        private Action<Resolution> onSetResolution;
         public Action<bool> OnSelectCursor { get { return onSelectCursor; } set { onSelectCursor = value; } }
         private Action<bool> onSelectCursor;
 
@@ -242,13 +244,13 @@ namespace UI
         #endregion
 
         #region Screen
-        public void ScreenSet()
+        public void ScreenSet(Resolution[] _resolutions)
         {
             currentScreen = GetResolution();
             SetCurrentResolution(currentScreen);
 
             textScreen = new List<string>();
-            tempResolutions = Screen.resolutions;
+            tempResolutions = _resolutions;
 
             for (int i = 0; i < tempResolutions.Length; i++)
             {
@@ -289,9 +291,7 @@ namespace UI
                 _currentScreen.width = winAudioSetting.MinWidth;
                 _currentScreen.height = winAudioSetting.MinHeight;
             }
-
-            bool fullScreen = true;
-            Screen.SetResolution(_currentScreen.width, _currentScreen.height, fullScreen);
+            onSetResolution?.Invoke(_currentScreen);
         }
         public void SetNewResolution(int indexDrop)
         {

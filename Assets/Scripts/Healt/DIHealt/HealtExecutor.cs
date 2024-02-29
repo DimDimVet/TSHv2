@@ -22,7 +22,7 @@ namespace Healts
         private Action<int, bool, Vector3> onIsDead;
         public Action<int, bool> OnIsDeadAndDirection { get { return onIsDeadAndDirection; } set { onIsDeadAndDirection = value; } }
         private Action<int, bool> onIsDeadAndDirection;
-        //
+        
         private Vector3 directionDamage;
 
         private IListDataExecutor data;

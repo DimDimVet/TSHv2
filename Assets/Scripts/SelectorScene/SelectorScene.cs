@@ -8,7 +8,6 @@ namespace UI
 {
     public class SelectorScene : MonoBehaviour
     {
-        //public bool isStart = false;
         private int thisHash;
         private int countEnemy;
         private bool isStopClass = false, isRun = false;
@@ -33,7 +32,7 @@ namespace UI
         }
         private void IsDead(int getHash, bool isDead, Vector3 _directionDamage)
         {
-            if (thisHash == getHash && isRun) { panels.CallOverScene(); /*isStart = true;*/}
+            if (thisHash == getHash && isRun) { panels.CallOverScene();}
         }
         private void UpdateStatistic(Statistic statistic)
         {
@@ -61,18 +60,5 @@ namespace UI
             if (isStopClass) { return; }
             if (!isRun) { SetClass(); }
         }
-
-        //private void FixedUpdate()
-        //{
-        //    RunUpdate();
-        //}
-        //private void RunUpdate()
-        //{
-        //    if (isStart)
-        //    {
-
-        //        isStart = !isStart;
-        //    }
-        //}
     }
 }

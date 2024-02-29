@@ -1,4 +1,3 @@
-using AudioScene;
 using Pools;
 using Zenject;
 
@@ -9,7 +8,7 @@ namespace Bulls
         private IPlayerTurnPoolExecutor playerBullPool;
         private IParticleTurnShootPlayerPoolExecutor particle;
         [Inject]
-        public void Init(IAudioShootExecutor _audioShoot, IPlayerTurnPoolExecutor _playerBullPool, IParticleTurnShootPlayerPoolExecutor _particle)
+        public void Init(IPlayerTurnPoolExecutor _playerBullPool, IParticleTurnShootPlayerPoolExecutor _particle)
         {
             playerBullPool = _playerBullPool;
             particle = _particle;

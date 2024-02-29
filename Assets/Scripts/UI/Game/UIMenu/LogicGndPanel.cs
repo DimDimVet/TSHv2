@@ -35,7 +35,6 @@ namespace UI
         private ElementGrid element;
         private List<ElementGrid> elements;
         private Vector2 mode—harging, modeGun, modeRif;
-        //private bool isStopElementGun = false, isStopElementRif = false;
         private Mode currentMode;
 
         private bool isStopClass = false, isRun = false;
@@ -99,7 +98,6 @@ namespace UI
             if (isStopClass) { return; }
             if (!isRun) { SetClass(); }
         }
-        //
         private void SetGrid()
         {
             mode—harging.x = spacingX—harging;
@@ -108,7 +106,7 @@ namespace UI
             modeGun.y = spacingYGun;
             modeRif.x = spacingXRif;
             modeRif.y = spacingYRif;
-            //
+
             SetGridElement();
         }
         private void CreatList(GameObject prefabType, GameObject elementGrid)
@@ -124,7 +122,7 @@ namespace UI
             tempElement = GameObject.Instantiate(element—harging, grid.transform.position,
                                                             grid.transform.rotation, grid.transform);
             CreatList(element—harging, tempElement);
-            //
+
             Charging[] tempParametr= panels.ChargingGetParametr();
             for (int i = 0; i < tempParametr.Length; i++){ SetModeElement(tempParametr[i]); }
 

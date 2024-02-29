@@ -13,7 +13,6 @@ namespace Bulls
         }
         protected override void ReternBullet()
         {
-
         }
         protected override void ShootSleeve()
         {

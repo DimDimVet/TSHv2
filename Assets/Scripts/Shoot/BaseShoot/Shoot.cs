@@ -24,7 +24,7 @@ namespace Shoot
         private int maxCountClip;
         protected int currentCountClip;
         protected int thisHash;
-        private int count = 0;
+        private int count=0;
         private bool isStopClass = false, isRun = false;
 
         private IHealt healtExecutor;

@@ -1,5 +1,4 @@
 using Healts;
-using Registrator;
 using UnityEngine;
 using Zenject;
 
@@ -16,13 +15,11 @@ namespace Input
         private int thisHash;
 
         private IHealt healtExecutor;
-        private IListDataExecutor dataList;
         private IInputPlayerExecutor inputs;
         [Inject]
-        public void Init(IInputPlayerExecutor _inputs, IListDataExecutor _dataList, IHealt _healtExecutor)
+        public void Init(IInputPlayerExecutor _inputs, IHealt _healtExecutor)
         {
             inputs = _inputs;
-            dataList = _dataList;
             healtExecutor = _healtExecutor;
         }
         private void OnEnable()
@@ -48,7 +45,7 @@ namespace Input
                 angleVelocity.y = settings.SpeedTurn;
                 speedForward = settings.SpeedForward;
                 speedBack = settings.SpeedBack;
-                thisHash=gameObject.GetHashCode();
+                thisHash = gameObject.GetHashCode();
                 rigidbodyGameObject = gameObject.GetComponent<Rigidbody>();
 
                 if (!(rigidbodyGameObject is Rigidbody))
@@ -56,7 +53,7 @@ namespace Input
                     rigidbodyGameObject = gameObject.AddComponent<Rigidbody>();
                     isRun = false;
                 }
-                else{isRun = true;}
+                else { isRun = true; }
             }
         }
 
