@@ -75,7 +75,7 @@ namespace EnemyLogic
                     acceleration = settings.Acceleration;
                     stopDistance = settings.StopDistance;
                     SetNavComponent();
-
+                    
                     isRun = true;
                 }
                 else { isRun = false; }
